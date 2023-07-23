@@ -9,12 +9,35 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var core: AppCore?
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Insert code here to initialize your application
+        let useRenderServiceErsatz = CommandLine.arguments.contains("-render-service-ersatz")
+        let renderServiceType: RenderServiceType = useRenderServiceErsatz ? .ersatz : .metal
+
+        let config = AppCoreConfig(
+            game: AppCoreConfig.Game(
+                world: AppCoreConfig.Game.World()
+            ),
+            platform: AppCoreConfig.Platform(
+                maximumTimeStep: 1 / 20, // don't step bigger than this (minimum of 20 fps)
+                worldTimeStep: 1 / 120 // 120 steps a second
+            ),
+            services: AppCoreConfig.Services(
+                renderService: AppCoreConfig.Services.RenderService(
+                    type: renderServiceType,
+                    clearColor: (0.3, 0.0, 0.3, 1.0)
+                ),
+                fileService: AppCoreConfig.Services.FileService(
+                    levelsFile: AppCoreConfig.Services.FileService.FileDescriptor(name: "levels", ext: "json")
+                )
+            )
+        )
+        core = AppCore(config)
         return true
     }
 

@@ -30,6 +30,180 @@
 		63B53D6F2A6C53EC00C39EA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B53D362A6C53EC00C39EA4 /* Assets.xcassets */; };
 		63B53D702A6C53EC00C39EA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B53D362A6C53EC00C39EA4 /* Assets.xcassets */; };
 		63B53D712A6C53EC00C39EA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B53D362A6C53EC00C39EA4 /* Assets.xcassets */; };
+		63B53FC82A6CB7DA00C39EA4 /* CollectionExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FAC2A6CB7D900C39EA4 /* CollectionExts.swift */; };
+		63B53FC92A6CB7DA00C39EA4 /* CollectionExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FAC2A6CB7D900C39EA4 /* CollectionExts.swift */; };
+		63B53FCA2A6CB7DA00C39EA4 /* CollectionExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FAC2A6CB7D900C39EA4 /* CollectionExts.swift */; };
+		63B53FCB2A6CB7DA00C39EA4 /* CTSRingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FAF2A6CB7D900C39EA4 /* CTSRingBuffer.swift */; };
+		63B53FCC2A6CB7DA00C39EA4 /* CTSRingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FAF2A6CB7D900C39EA4 /* CTSRingBuffer.swift */; };
+		63B53FCD2A6CB7DA00C39EA4 /* CTSRingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FAF2A6CB7D900C39EA4 /* CTSRingBuffer.swift */; };
+		63B53FCE2A6CB7DA00C39EA4 /* CTSVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB12A6CB7D900C39EA4 /* CTSVertex.swift */; };
+		63B53FCF2A6CB7DA00C39EA4 /* CTSVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB12A6CB7D900C39EA4 /* CTSVertex.swift */; };
+		63B53FD02A6CB7DA00C39EA4 /* CTSVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB12A6CB7D900C39EA4 /* CTSVertex.swift */; };
+		63B53FD12A6CB7DA00C39EA4 /* CTSGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB22A6CB7D900C39EA4 /* CTSGraph.swift */; };
+		63B53FD22A6CB7DA00C39EA4 /* CTSGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB22A6CB7D900C39EA4 /* CTSGraph.swift */; };
+		63B53FD32A6CB7DA00C39EA4 /* CTSGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB22A6CB7D900C39EA4 /* CTSGraph.swift */; };
+		63B53FD42A6CB7DA00C39EA4 /* CTSAdjacencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB32A6CB7D900C39EA4 /* CTSAdjacencyList.swift */; };
+		63B53FD52A6CB7DA00C39EA4 /* CTSAdjacencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB32A6CB7D900C39EA4 /* CTSAdjacencyList.swift */; };
+		63B53FD62A6CB7DA00C39EA4 /* CTSAdjacencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB32A6CB7D900C39EA4 /* CTSAdjacencyList.swift */; };
+		63B53FD72A6CB7DA00C39EA4 /* CTSEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB42A6CB7D900C39EA4 /* CTSEdge.swift */; };
+		63B53FD82A6CB7DA00C39EA4 /* CTSEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB42A6CB7D900C39EA4 /* CTSEdge.swift */; };
+		63B53FD92A6CB7DA00C39EA4 /* CTSEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB42A6CB7D900C39EA4 /* CTSEdge.swift */; };
+		63B53FDA2A6CB7DA00C39EA4 /* CTSHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB62A6CB7D900C39EA4 /* CTSHeap.swift */; };
+		63B53FDB2A6CB7DA00C39EA4 /* CTSHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB62A6CB7D900C39EA4 /* CTSHeap.swift */; };
+		63B53FDC2A6CB7DA00C39EA4 /* CTSHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB62A6CB7D900C39EA4 /* CTSHeap.swift */; };
+		63B53FDD2A6CB7DA00C39EA4 /* CTSQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB82A6CB7D900C39EA4 /* CTSQueue.swift */; };
+		63B53FDE2A6CB7DA00C39EA4 /* CTSQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB82A6CB7D900C39EA4 /* CTSQueue.swift */; };
+		63B53FDF2A6CB7DA00C39EA4 /* CTSQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB82A6CB7D900C39EA4 /* CTSQueue.swift */; };
+		63B53FE02A6CB7DA00C39EA4 /* CTSStackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB92A6CB7DA00C39EA4 /* CTSStackQueue.swift */; };
+		63B53FE12A6CB7DA00C39EA4 /* CTSStackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB92A6CB7DA00C39EA4 /* CTSStackQueue.swift */; };
+		63B53FE22A6CB7DA00C39EA4 /* CTSStackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FB92A6CB7DA00C39EA4 /* CTSStackQueue.swift */; };
+		63B53FE32A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBA2A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift */; };
+		63B53FE42A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBA2A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift */; };
+		63B53FE52A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBA2A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift */; };
+		63B53FE62A6CB7DA00C39EA4 /* CTSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBC2A6CB7DA00C39EA4 /* CTSStack.swift */; };
+		63B53FE72A6CB7DA00C39EA4 /* CTSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBC2A6CB7DA00C39EA4 /* CTSStack.swift */; };
+		63B53FE82A6CB7DA00C39EA4 /* CTSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBC2A6CB7DA00C39EA4 /* CTSStack.swift */; };
+		63B53FE92A6CB7DA00C39EA4 /* CTSQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBE2A6CB7DA00C39EA4 /* CTSQuadTree.swift */; };
+		63B53FEA2A6CB7DA00C39EA4 /* CTSQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBE2A6CB7DA00C39EA4 /* CTSQuadTree.swift */; };
+		63B53FEB2A6CB7DA00C39EA4 /* CTSQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBE2A6CB7DA00C39EA4 /* CTSQuadTree.swift */; };
+		63B53FEC2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBF2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift */; };
+		63B53FED2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBF2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift */; };
+		63B53FEE2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FBF2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift */; };
+		63B53FEF2A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift */; };
+		63B53FF02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift */; };
+		63B53FF12A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift */; };
+		63B53FF22A6CB7DA00C39EA4 /* ScopeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC12A6CB7DA00C39EA4 /* ScopeFunctions.swift */; };
+		63B53FF32A6CB7DA00C39EA4 /* ScopeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC12A6CB7DA00C39EA4 /* ScopeFunctions.swift */; };
+		63B53FF42A6CB7DA00C39EA4 /* ScopeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC12A6CB7DA00C39EA4 /* ScopeFunctions.swift */; };
+		63B53FF52A6CB7DA00C39EA4 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 63B53FC22A6CB7DA00C39EA4 /* levels.json */; };
+		63B53FF62A6CB7DA00C39EA4 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 63B53FC22A6CB7DA00C39EA4 /* levels.json */; };
+		63B53FF72A6CB7DA00C39EA4 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 63B53FC22A6CB7DA00C39EA4 /* levels.json */; };
+		63B53FF82A6CB7DA00C39EA4 /* RenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC42A6CB7DA00C39EA4 /* RenderService.swift */; };
+		63B53FF92A6CB7DA00C39EA4 /* RenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC42A6CB7DA00C39EA4 /* RenderService.swift */; };
+		63B53FFA2A6CB7DA00C39EA4 /* RenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC42A6CB7DA00C39EA4 /* RenderService.swift */; };
+		63B53FFB2A6CB7DA00C39EA4 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC52A6CB7DA00C39EA4 /* FileService.swift */; };
+		63B53FFC2A6CB7DA00C39EA4 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC52A6CB7DA00C39EA4 /* FileService.swift */; };
+		63B53FFD2A6CB7DA00C39EA4 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC52A6CB7DA00C39EA4 /* FileService.swift */; };
+		63B53FFE2A6CB7DA00C39EA4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC72A6CB7DA00C39EA4 /* Shaders.metal */; };
+		63B53FFF2A6CB7DA00C39EA4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC72A6CB7DA00C39EA4 /* Shaders.metal */; };
+		63B540002A6CB7DA00C39EA4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 63B53FC72A6CB7DA00C39EA4 /* Shaders.metal */; };
+		63B540332A6CB7FB00C39EA4 /* RNDRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540022A6CB7FB00C39EA4 /* RNDRRenderer.swift */; };
+		63B540342A6CB7FB00C39EA4 /* RNDRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540022A6CB7FB00C39EA4 /* RNDRRenderer.swift */; };
+		63B540352A6CB7FB00C39EA4 /* RNDRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540022A6CB7FB00C39EA4 /* RNDRRenderer.swift */; };
+		63B540362A6CB7FB00C39EA4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540032A6CB7FB00C39EA4 /* Model.swift */; };
+		63B540372A6CB7FB00C39EA4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540032A6CB7FB00C39EA4 /* Model.swift */; };
+		63B540382A6CB7FB00C39EA4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540032A6CB7FB00C39EA4 /* Model.swift */; };
+		63B540392A6CB7FB00C39EA4 /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540042A6CB7FB00C39EA4 /* ScreenDimensions.swift */; };
+		63B5403A2A6CB7FB00C39EA4 /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540042A6CB7FB00C39EA4 /* ScreenDimensions.swift */; };
+		63B5403B2A6CB7FB00C39EA4 /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540042A6CB7FB00C39EA4 /* ScreenDimensions.swift */; };
+		63B5403C2A6CB7FB00C39EA4 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540062A6CB7FB00C39EA4 /* TileMap.swift */; };
+		63B5403D2A6CB7FB00C39EA4 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540062A6CB7FB00C39EA4 /* TileMap.swift */; };
+		63B5403E2A6CB7FB00C39EA4 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540062A6CB7FB00C39EA4 /* TileMap.swift */; };
+		63B5403F2A6CB7FB00C39EA4 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540072A6CB7FB00C39EA4 /* Rect.swift */; };
+		63B540402A6CB7FB00C39EA4 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540072A6CB7FB00C39EA4 /* Rect.swift */; };
+		63B540412A6CB7FB00C39EA4 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540072A6CB7FB00C39EA4 /* Rect.swift */; };
+		63B540422A6CB7FB00C39EA4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540082A6CB7FB00C39EA4 /* Game.swift */; };
+		63B540432A6CB7FB00C39EA4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540082A6CB7FB00C39EA4 /* Game.swift */; };
+		63B540442A6CB7FB00C39EA4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540082A6CB7FB00C39EA4 /* Game.swift */; };
+		63B540452A6CB7FB00C39EA4 /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540092A6CB7FB00C39EA4 /* GameInput.swift */; };
+		63B540462A6CB7FB00C39EA4 /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540092A6CB7FB00C39EA4 /* GameInput.swift */; };
+		63B540472A6CB7FB00C39EA4 /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540092A6CB7FB00C39EA4 /* GameInput.swift */; };
+		63B540482A6CB7FB00C39EA4 /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400A2A6CB7FB00C39EA4 /* MapData.swift */; };
+		63B540492A6CB7FB00C39EA4 /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400A2A6CB7FB00C39EA4 /* MapData.swift */; };
+		63B5404A2A6CB7FB00C39EA4 /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400A2A6CB7FB00C39EA4 /* MapData.swift */; };
+		63B5404B2A6CB7FB00C39EA4 /* ECSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400C2A6CB7FB00C39EA4 /* ECSScene.swift */; };
+		63B5404C2A6CB7FB00C39EA4 /* ECSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400C2A6CB7FB00C39EA4 /* ECSScene.swift */; };
+		63B5404D2A6CB7FB00C39EA4 /* ECSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400C2A6CB7FB00C39EA4 /* ECSScene.swift */; };
+		63B5404E2A6CB7FB00C39EA4 /* ECSEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400E2A6CB7FB00C39EA4 /* ECSEntityManager.swift */; };
+		63B5404F2A6CB7FB00C39EA4 /* ECSEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400E2A6CB7FB00C39EA4 /* ECSEntityManager.swift */; };
+		63B540502A6CB7FB00C39EA4 /* ECSEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400E2A6CB7FB00C39EA4 /* ECSEntityManager.swift */; };
+		63B540512A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400F2A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift */; };
+		63B540522A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400F2A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift */; };
+		63B540532A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5400F2A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift */; };
+		63B540542A6CB7FB00C39EA4 /* ECSMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540122A6CB7FB00C39EA4 /* ECSMapButton.swift */; };
+		63B540552A6CB7FB00C39EA4 /* ECSMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540122A6CB7FB00C39EA4 /* ECSMapButton.swift */; };
+		63B540562A6CB7FB00C39EA4 /* ECSMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540122A6CB7FB00C39EA4 /* ECSMapButton.swift */; };
+		63B540572A6CB7FB00C39EA4 /* ECSToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540132A6CB7FB00C39EA4 /* ECSToggleButton.swift */; };
+		63B540582A6CB7FB00C39EA4 /* ECSToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540132A6CB7FB00C39EA4 /* ECSToggleButton.swift */; };
+		63B540592A6CB7FB00C39EA4 /* ECSToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540132A6CB7FB00C39EA4 /* ECSToggleButton.swift */; };
+		63B5405A2A6CB7FB00C39EA4 /* ECSWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540142A6CB7FB00C39EA4 /* ECSWall.swift */; };
+		63B5405B2A6CB7FB00C39EA4 /* ECSWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540142A6CB7FB00C39EA4 /* ECSWall.swift */; };
+		63B5405C2A6CB7FB00C39EA4 /* ECSWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540142A6CB7FB00C39EA4 /* ECSWall.swift */; };
+		63B5405D2A6CB7FB00C39EA4 /* ECSGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540152A6CB7FB00C39EA4 /* ECSGraphics.swift */; };
+		63B5405E2A6CB7FB00C39EA4 /* ECSGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540152A6CB7FB00C39EA4 /* ECSGraphics.swift */; };
+		63B5405F2A6CB7FB00C39EA4 /* ECSGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540152A6CB7FB00C39EA4 /* ECSGraphics.swift */; };
+		63B540602A6CB7FB00C39EA4 /* ECSComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540162A6CB7FB00C39EA4 /* ECSComponent.swift */; };
+		63B540612A6CB7FB00C39EA4 /* ECSComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540162A6CB7FB00C39EA4 /* ECSComponent.swift */; };
+		63B540622A6CB7FB00C39EA4 /* ECSComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540162A6CB7FB00C39EA4 /* ECSComponent.swift */; };
+		63B540632A6CB7FB00C39EA4 /* ECSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540172A6CB7FB00C39EA4 /* ECSPlayer.swift */; };
+		63B540642A6CB7FB00C39EA4 /* ECSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540172A6CB7FB00C39EA4 /* ECSPlayer.swift */; };
+		63B540652A6CB7FB00C39EA4 /* ECSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540172A6CB7FB00C39EA4 /* ECSPlayer.swift */; };
+		63B540662A6CB7FB00C39EA4 /* ECSCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540182A6CB7FB00C39EA4 /* ECSCamera.swift */; };
+		63B540672A6CB7FB00C39EA4 /* ECSCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540182A6CB7FB00C39EA4 /* ECSCamera.swift */; };
+		63B540682A6CB7FB00C39EA4 /* ECSCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540182A6CB7FB00C39EA4 /* ECSCamera.swift */; };
+		63B540692A6CB7FB00C39EA4 /* ECSCollision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401A2A6CB7FB00C39EA4 /* ECSCollision.swift */; };
+		63B5406A2A6CB7FB00C39EA4 /* ECSCollision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401A2A6CB7FB00C39EA4 /* ECSCollision.swift */; };
+		63B5406B2A6CB7FB00C39EA4 /* ECSCollision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401A2A6CB7FB00C39EA4 /* ECSCollision.swift */; };
+		63B5406C2A6CB7FB00C39EA4 /* ECSInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401B2A6CB7FB00C39EA4 /* ECSInput.swift */; };
+		63B5406D2A6CB7FB00C39EA4 /* ECSInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401B2A6CB7FB00C39EA4 /* ECSInput.swift */; };
+		63B5406E2A6CB7FB00C39EA4 /* ECSInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401B2A6CB7FB00C39EA4 /* ECSInput.swift */; };
+		63B5406F2A6CB7FB00C39EA4 /* ECSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401D2A6CB7FB00C39EA4 /* ECSEntity.swift */; };
+		63B540702A6CB7FB00C39EA4 /* ECSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401D2A6CB7FB00C39EA4 /* ECSEntity.swift */; };
+		63B540712A6CB7FB00C39EA4 /* ECSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401D2A6CB7FB00C39EA4 /* ECSEntity.swift */; };
+		63B540722A6CB7FB00C39EA4 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401E2A6CB7FB00C39EA4 /* Thing.swift */; };
+		63B540732A6CB7FB00C39EA4 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401E2A6CB7FB00C39EA4 /* Thing.swift */; };
+		63B540742A6CB7FB00C39EA4 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401E2A6CB7FB00C39EA4 /* Thing.swift */; };
+		63B540752A6CB7FB00C39EA4 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401F2A6CB7FB00C39EA4 /* Input.swift */; };
+		63B540762A6CB7FB00C39EA4 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401F2A6CB7FB00C39EA4 /* Input.swift */; };
+		63B540772A6CB7FB00C39EA4 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5401F2A6CB7FB00C39EA4 /* Input.swift */; };
+		63B540782A6CB7FB00C39EA4 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540202A6CB7FB00C39EA4 /* World.swift */; };
+		63B540792A6CB7FB00C39EA4 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540202A6CB7FB00C39EA4 /* World.swift */; };
+		63B5407A2A6CB7FB00C39EA4 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540202A6CB7FB00C39EA4 /* World.swift */; };
+		63B5407B2A6CB7FB00C39EA4 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540212A6CB7FB00C39EA4 /* Tile.swift */; };
+		63B5407C2A6CB7FB00C39EA4 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540212A6CB7FB00C39EA4 /* Tile.swift */; };
+		63B5407D2A6CB7FB00C39EA4 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540212A6CB7FB00C39EA4 /* Tile.swift */; };
+		63B5407E2A6CB7FB00C39EA4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540232A6CB7FB00C39EA4 /* Color.swift */; };
+		63B5407F2A6CB7FB00C39EA4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540232A6CB7FB00C39EA4 /* Color.swift */; };
+		63B540802A6CB7FB00C39EA4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540232A6CB7FB00C39EA4 /* Color.swift */; };
+		63B540812A6CB7FB00C39EA4 /* AppCoreContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540252A6CB7FB00C39EA4 /* AppCoreContext.swift */; };
+		63B540822A6CB7FB00C39EA4 /* AppCoreContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540252A6CB7FB00C39EA4 /* AppCoreContext.swift */; };
+		63B540832A6CB7FB00C39EA4 /* AppCoreContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540252A6CB7FB00C39EA4 /* AppCoreContext.swift */; };
+		63B540842A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540262A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift */; };
+		63B540852A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540262A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift */; };
+		63B540862A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540262A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift */; };
+		63B540872A6CB7FB00C39EA4 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540272A6CB7FB00C39EA4 /* AppCore.swift */; };
+		63B540882A6CB7FB00C39EA4 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540272A6CB7FB00C39EA4 /* AppCore.swift */; };
+		63B540892A6CB7FB00C39EA4 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540272A6CB7FB00C39EA4 /* AppCore.swift */; };
+		63B5408A2A6CB7FB00C39EA4 /* AppCoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540282A6CB7FB00C39EA4 /* AppCoreConfig.swift */; };
+		63B5408B2A6CB7FB00C39EA4 /* AppCoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540282A6CB7FB00C39EA4 /* AppCoreConfig.swift */; };
+		63B5408C2A6CB7FB00C39EA4 /* AppCoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540282A6CB7FB00C39EA4 /* AppCoreConfig.swift */; };
+		63B5408D2A6CB7FB00C39EA4 /* IntExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402A2A6CB7FB00C39EA4 /* IntExts.swift */; };
+		63B5408E2A6CB7FB00C39EA4 /* IntExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402A2A6CB7FB00C39EA4 /* IntExts.swift */; };
+		63B5408F2A6CB7FB00C39EA4 /* IntExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402A2A6CB7FB00C39EA4 /* IntExts.swift */; };
+		63B540902A6CB7FB00C39EA4 /* Float3x3Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402B2A6CB7FB00C39EA4 /* Float3x3Exts.swift */; };
+		63B540912A6CB7FB00C39EA4 /* Float3x3Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402B2A6CB7FB00C39EA4 /* Float3x3Exts.swift */; };
+		63B540922A6CB7FB00C39EA4 /* Float3x3Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402B2A6CB7FB00C39EA4 /* Float3x3Exts.swift */; };
+		63B540932A6CB7FB00C39EA4 /* Float2x2Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402C2A6CB7FB00C39EA4 /* Float2x2Exts.swift */; };
+		63B540942A6CB7FB00C39EA4 /* Float2x2Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402C2A6CB7FB00C39EA4 /* Float2x2Exts.swift */; };
+		63B540952A6CB7FB00C39EA4 /* Float2x2Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402C2A6CB7FB00C39EA4 /* Float2x2Exts.swift */; };
+		63B540962A6CB7FB00C39EA4 /* Float3Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402D2A6CB7FB00C39EA4 /* Float3Exts.swift */; };
+		63B540972A6CB7FB00C39EA4 /* Float3Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402D2A6CB7FB00C39EA4 /* Float3Exts.swift */; };
+		63B540982A6CB7FB00C39EA4 /* Float3Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402D2A6CB7FB00C39EA4 /* Float3Exts.swift */; };
+		63B540992A6CB7FB00C39EA4 /* FloatExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402E2A6CB7FB00C39EA4 /* FloatExts.swift */; };
+		63B5409A2A6CB7FB00C39EA4 /* FloatExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402E2A6CB7FB00C39EA4 /* FloatExts.swift */; };
+		63B5409B2A6CB7FB00C39EA4 /* FloatExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402E2A6CB7FB00C39EA4 /* FloatExts.swift */; };
+		63B5409C2A6CB7FB00C39EA4 /* Float2Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402F2A6CB7FB00C39EA4 /* Float2Exts.swift */; };
+		63B5409D2A6CB7FB00C39EA4 /* Float2Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402F2A6CB7FB00C39EA4 /* Float2Exts.swift */; };
+		63B5409E2A6CB7FB00C39EA4 /* Float2Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5402F2A6CB7FB00C39EA4 /* Float2Exts.swift */; };
+		63B5409F2A6CB7FB00C39EA4 /* Float4x4Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540302A6CB7FB00C39EA4 /* Float4x4Exts.swift */; };
+		63B540A02A6CB7FB00C39EA4 /* Float4x4Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540302A6CB7FB00C39EA4 /* Float4x4Exts.swift */; };
+		63B540A12A6CB7FB00C39EA4 /* Float4x4Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540302A6CB7FB00C39EA4 /* Float4x4Exts.swift */; };
+		63B540A22A6CB7FB00C39EA4 /* Float4Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540312A6CB7FB00C39EA4 /* Float4Exts.swift */; };
+		63B540A32A6CB7FB00C39EA4 /* Float4Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540312A6CB7FB00C39EA4 /* Float4Exts.swift */; };
+		63B540A42A6CB7FB00C39EA4 /* Float4Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540312A6CB7FB00C39EA4 /* Float4Exts.swift */; };
+		63B540A52A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */; };
+		63B540A62A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */; };
+		63B540A72A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +228,64 @@
 		63B53D652A6C53EC00C39EA4 /* lecs_swift_demo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lecs_swift_demo_macOS.entitlements; sourceTree = "<group>"; };
 		63B53D7D2A6C556500C39EA4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		63B53D812A6C55CD00C39EA4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		63B53FAC2A6CB7D900C39EA4 /* CollectionExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExts.swift; sourceTree = "<group>"; };
+		63B53FAF2A6CB7D900C39EA4 /* CTSRingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSRingBuffer.swift; sourceTree = "<group>"; };
+		63B53FB12A6CB7D900C39EA4 /* CTSVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSVertex.swift; sourceTree = "<group>"; };
+		63B53FB22A6CB7D900C39EA4 /* CTSGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSGraph.swift; sourceTree = "<group>"; };
+		63B53FB32A6CB7D900C39EA4 /* CTSAdjacencyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSAdjacencyList.swift; sourceTree = "<group>"; };
+		63B53FB42A6CB7D900C39EA4 /* CTSEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSEdge.swift; sourceTree = "<group>"; };
+		63B53FB62A6CB7D900C39EA4 /* CTSHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSHeap.swift; sourceTree = "<group>"; };
+		63B53FB82A6CB7D900C39EA4 /* CTSQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSQueue.swift; sourceTree = "<group>"; };
+		63B53FB92A6CB7DA00C39EA4 /* CTSStackQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSStackQueue.swift; sourceTree = "<group>"; };
+		63B53FBA2A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSPriorityQueueDict.swift; sourceTree = "<group>"; };
+		63B53FBC2A6CB7DA00C39EA4 /* CTSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSStack.swift; sourceTree = "<group>"; };
+		63B53FBE2A6CB7DA00C39EA4 /* CTSQuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSQuadTree.swift; sourceTree = "<group>"; };
+		63B53FBF2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSTQuadTreePoint.swift; sourceTree = "<group>"; };
+		63B53FC02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSTQuadTreeRect.swift; sourceTree = "<group>"; };
+		63B53FC12A6CB7DA00C39EA4 /* ScopeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScopeFunctions.swift; sourceTree = "<group>"; };
+		63B53FC22A6CB7DA00C39EA4 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
+		63B53FC42A6CB7DA00C39EA4 /* RenderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderService.swift; sourceTree = "<group>"; };
+		63B53FC52A6CB7DA00C39EA4 /* FileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		63B53FC72A6CB7DA00C39EA4 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		63B540022A6CB7FB00C39EA4 /* RNDRRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDRRenderer.swift; sourceTree = "<group>"; };
+		63B540032A6CB7FB00C39EA4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		63B540042A6CB7FB00C39EA4 /* ScreenDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenDimensions.swift; sourceTree = "<group>"; };
+		63B540062A6CB7FB00C39EA4 /* TileMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
+		63B540072A6CB7FB00C39EA4 /* Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
+		63B540082A6CB7FB00C39EA4 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		63B540092A6CB7FB00C39EA4 /* GameInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInput.swift; sourceTree = "<group>"; };
+		63B5400A2A6CB7FB00C39EA4 /* MapData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
+		63B5400C2A6CB7FB00C39EA4 /* ECSScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSScene.swift; sourceTree = "<group>"; };
+		63B5400E2A6CB7FB00C39EA4 /* ECSEntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSEntityManager.swift; sourceTree = "<group>"; };
+		63B5400F2A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSBigObjectEntityManager.swift; sourceTree = "<group>"; };
+		63B540122A6CB7FB00C39EA4 /* ECSMapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSMapButton.swift; sourceTree = "<group>"; };
+		63B540132A6CB7FB00C39EA4 /* ECSToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSToggleButton.swift; sourceTree = "<group>"; };
+		63B540142A6CB7FB00C39EA4 /* ECSWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSWall.swift; sourceTree = "<group>"; };
+		63B540152A6CB7FB00C39EA4 /* ECSGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSGraphics.swift; sourceTree = "<group>"; };
+		63B540162A6CB7FB00C39EA4 /* ECSComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSComponent.swift; sourceTree = "<group>"; };
+		63B540172A6CB7FB00C39EA4 /* ECSPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSPlayer.swift; sourceTree = "<group>"; };
+		63B540182A6CB7FB00C39EA4 /* ECSCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSCamera.swift; sourceTree = "<group>"; };
+		63B5401A2A6CB7FB00C39EA4 /* ECSCollision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSCollision.swift; sourceTree = "<group>"; };
+		63B5401B2A6CB7FB00C39EA4 /* ECSInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSInput.swift; sourceTree = "<group>"; };
+		63B5401D2A6CB7FB00C39EA4 /* ECSEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSEntity.swift; sourceTree = "<group>"; };
+		63B5401E2A6CB7FB00C39EA4 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		63B5401F2A6CB7FB00C39EA4 /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		63B540202A6CB7FB00C39EA4 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		63B540212A6CB7FB00C39EA4 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		63B540232A6CB7FB00C39EA4 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		63B540252A6CB7FB00C39EA4 /* AppCoreContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoreContext.swift; sourceTree = "<group>"; };
+		63B540262A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoreServiceFactory.swift; sourceTree = "<group>"; };
+		63B540272A6CB7FB00C39EA4 /* AppCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
+		63B540282A6CB7FB00C39EA4 /* AppCoreConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoreConfig.swift; sourceTree = "<group>"; };
+		63B5402A2A6CB7FB00C39EA4 /* IntExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExts.swift; sourceTree = "<group>"; };
+		63B5402B2A6CB7FB00C39EA4 /* Float3x3Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float3x3Exts.swift; sourceTree = "<group>"; };
+		63B5402C2A6CB7FB00C39EA4 /* Float2x2Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float2x2Exts.swift; sourceTree = "<group>"; };
+		63B5402D2A6CB7FB00C39EA4 /* Float3Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float3Exts.swift; sourceTree = "<group>"; };
+		63B5402E2A6CB7FB00C39EA4 /* FloatExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExts.swift; sourceTree = "<group>"; };
+		63B5402F2A6CB7FB00C39EA4 /* Float2Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float2Exts.swift; sourceTree = "<group>"; };
+		63B540302A6CB7FB00C39EA4 /* Float4x4Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float4x4Exts.swift; sourceTree = "<group>"; };
+		63B540312A6CB7FB00C39EA4 /* Float4Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float4Exts.swift; sourceTree = "<group>"; };
+		63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +329,16 @@
 		63B53D322A6C53EA00C39EA4 /* lecs-swift-demo Shared */ = {
 			isa = PBXGroup;
 			children = (
+				63B540242A6CB7FB00C39EA4 /* AppCore */,
+				63B540052A6CB7FB00C39EA4 /* Game */,
+				63B540292A6CB7FB00C39EA4 /* Math */,
+				63B540012A6CB7FB00C39EA4 /* Render */,
+				63B53FAC2A6CB7D900C39EA4 /* CollectionExts.swift */,
+				63B53FAD2A6CB7D900C39EA4 /* Collections */,
+				63B53FC22A6CB7DA00C39EA4 /* levels.json */,
+				63B53FC12A6CB7DA00C39EA4 /* ScopeFunctions.swift */,
+				63B53FC32A6CB7DA00C39EA4 /* Services */,
+				63B53FC62A6CB7DA00C39EA4 /* Shaders */,
 				63B53D332A6C53EA00C39EA4 /* Shaders.metal */,
 				63B53D342A6C53EA00C39EA4 /* Renderer.swift */,
 				63B53D352A6C53EA00C39EA4 /* ShaderTypes.h */,
@@ -146,6 +388,214 @@
 				63B53D652A6C53EC00C39EA4 /* lecs_swift_demo_macOS.entitlements */,
 			);
 			path = "lecs-swift-demo macOS";
+			sourceTree = "<group>";
+		};
+		63B53FAD2A6CB7D900C39EA4 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FAE2A6CB7D900C39EA4 /* RingBuffer */,
+				63B53FB02A6CB7D900C39EA4 /* Graph */,
+				63B53FB52A6CB7D900C39EA4 /* Heap */,
+				63B53FB72A6CB7D900C39EA4 /* Queue */,
+				63B53FBB2A6CB7DA00C39EA4 /* Stack */,
+				63B53FBD2A6CB7DA00C39EA4 /* QuadTree */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		63B53FAE2A6CB7D900C39EA4 /* RingBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FAF2A6CB7D900C39EA4 /* CTSRingBuffer.swift */,
+			);
+			path = RingBuffer;
+			sourceTree = "<group>";
+		};
+		63B53FB02A6CB7D900C39EA4 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FB12A6CB7D900C39EA4 /* CTSVertex.swift */,
+				63B53FB22A6CB7D900C39EA4 /* CTSGraph.swift */,
+				63B53FB32A6CB7D900C39EA4 /* CTSAdjacencyList.swift */,
+				63B53FB42A6CB7D900C39EA4 /* CTSEdge.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		63B53FB52A6CB7D900C39EA4 /* Heap */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FB62A6CB7D900C39EA4 /* CTSHeap.swift */,
+			);
+			path = Heap;
+			sourceTree = "<group>";
+		};
+		63B53FB72A6CB7D900C39EA4 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FB82A6CB7D900C39EA4 /* CTSQueue.swift */,
+				63B53FB92A6CB7DA00C39EA4 /* CTSStackQueue.swift */,
+				63B53FBA2A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		63B53FBB2A6CB7DA00C39EA4 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FBC2A6CB7DA00C39EA4 /* CTSStack.swift */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		63B53FBD2A6CB7DA00C39EA4 /* QuadTree */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FBE2A6CB7DA00C39EA4 /* CTSQuadTree.swift */,
+				63B53FBF2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift */,
+				63B53FC02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift */,
+			);
+			path = QuadTree;
+			sourceTree = "<group>";
+		};
+		63B53FC32A6CB7DA00C39EA4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FC42A6CB7DA00C39EA4 /* RenderService.swift */,
+				63B53FC52A6CB7DA00C39EA4 /* FileService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		63B53FC62A6CB7DA00C39EA4 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				63B53FC72A6CB7DA00C39EA4 /* Shaders.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		63B540012A6CB7FB00C39EA4 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				63B540022A6CB7FB00C39EA4 /* RNDRRenderer.swift */,
+				63B540032A6CB7FB00C39EA4 /* Model.swift */,
+				63B540042A6CB7FB00C39EA4 /* ScreenDimensions.swift */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		63B540052A6CB7FB00C39EA4 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				63B540062A6CB7FB00C39EA4 /* TileMap.swift */,
+				63B540072A6CB7FB00C39EA4 /* Rect.swift */,
+				63B540082A6CB7FB00C39EA4 /* Game.swift */,
+				63B540092A6CB7FB00C39EA4 /* GameInput.swift */,
+				63B5400A2A6CB7FB00C39EA4 /* MapData.swift */,
+				63B5400B2A6CB7FB00C39EA4 /* Ecs */,
+				63B5401E2A6CB7FB00C39EA4 /* Thing.swift */,
+				63B5401F2A6CB7FB00C39EA4 /* Input.swift */,
+				63B540202A6CB7FB00C39EA4 /* World.swift */,
+				63B540212A6CB7FB00C39EA4 /* Tile.swift */,
+				63B540222A6CB7FB00C39EA4 /* Actor */,
+				63B540232A6CB7FB00C39EA4 /* Color.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		63B5400B2A6CB7FB00C39EA4 /* Ecs */ = {
+			isa = PBXGroup;
+			children = (
+				63B5400C2A6CB7FB00C39EA4 /* ECSScene.swift */,
+				63B5400D2A6CB7FB00C39EA4 /* EntityManager */,
+				63B540102A6CB7FB00C39EA4 /* Components */,
+				63B5401C2A6CB7FB00C39EA4 /* Entities */,
+			);
+			path = Ecs;
+			sourceTree = "<group>";
+		};
+		63B5400D2A6CB7FB00C39EA4 /* EntityManager */ = {
+			isa = PBXGroup;
+			children = (
+				63B5400E2A6CB7FB00C39EA4 /* ECSEntityManager.swift */,
+				63B5400F2A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift */,
+			);
+			path = EntityManager;
+			sourceTree = "<group>";
+		};
+		63B540102A6CB7FB00C39EA4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				63B540112A6CB7FB00C39EA4 /* Behavior */,
+				63B540152A6CB7FB00C39EA4 /* ECSGraphics.swift */,
+				63B540162A6CB7FB00C39EA4 /* ECSComponent.swift */,
+				63B540172A6CB7FB00C39EA4 /* ECSPlayer.swift */,
+				63B540182A6CB7FB00C39EA4 /* ECSCamera.swift */,
+				63B540192A6CB7FB00C39EA4 /* Physics */,
+				63B5401B2A6CB7FB00C39EA4 /* ECSInput.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		63B540112A6CB7FB00C39EA4 /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+				63B540122A6CB7FB00C39EA4 /* ECSMapButton.swift */,
+				63B540132A6CB7FB00C39EA4 /* ECSToggleButton.swift */,
+				63B540142A6CB7FB00C39EA4 /* ECSWall.swift */,
+			);
+			path = Behavior;
+			sourceTree = "<group>";
+		};
+		63B540192A6CB7FB00C39EA4 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				63B5401A2A6CB7FB00C39EA4 /* ECSCollision.swift */,
+			);
+			path = Physics;
+			sourceTree = "<group>";
+		};
+		63B5401C2A6CB7FB00C39EA4 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				63B5401D2A6CB7FB00C39EA4 /* ECSEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		63B540222A6CB7FB00C39EA4 /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Actor;
+			sourceTree = "<group>";
+		};
+		63B540242A6CB7FB00C39EA4 /* AppCore */ = {
+			isa = PBXGroup;
+			children = (
+				63B540252A6CB7FB00C39EA4 /* AppCoreContext.swift */,
+				63B540262A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift */,
+				63B540272A6CB7FB00C39EA4 /* AppCore.swift */,
+				63B540282A6CB7FB00C39EA4 /* AppCoreConfig.swift */,
+			);
+			path = AppCore;
+			sourceTree = "<group>";
+		};
+		63B540292A6CB7FB00C39EA4 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				63B5402A2A6CB7FB00C39EA4 /* IntExts.swift */,
+				63B5402B2A6CB7FB00C39EA4 /* Float3x3Exts.swift */,
+				63B5402C2A6CB7FB00C39EA4 /* Float2x2Exts.swift */,
+				63B5402D2A6CB7FB00C39EA4 /* Float3Exts.swift */,
+				63B5402E2A6CB7FB00C39EA4 /* FloatExts.swift */,
+				63B5402F2A6CB7FB00C39EA4 /* Float2Exts.swift */,
+				63B540302A6CB7FB00C39EA4 /* Float4x4Exts.swift */,
+				63B540312A6CB7FB00C39EA4 /* Float4Exts.swift */,
+				63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */,
+			);
+			path = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +699,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B53D6C2A6C53EC00C39EA4 /* ShaderTypes.h in Resources */,
+				63B53FF52A6CB7DA00C39EA4 /* levels.json in Resources */,
 				63B53D442A6C53EC00C39EA4 /* Main.storyboard in Resources */,
 				63B53D6F2A6C53EC00C39EA4 /* Assets.xcassets in Resources */,
 				63B53D472A6C53EC00C39EA4 /* LaunchScreen.storyboard in Resources */,
@@ -260,6 +711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B53D6D2A6C53EC00C39EA4 /* ShaderTypes.h in Resources */,
+				63B53FF62A6CB7DA00C39EA4 /* levels.json in Resources */,
 				63B53D542A6C53EC00C39EA4 /* Main.storyboard in Resources */,
 				63B53D702A6C53EC00C39EA4 /* Assets.xcassets in Resources */,
 				63B53D572A6C53EC00C39EA4 /* LaunchScreen.storyboard in Resources */,
@@ -272,6 +724,7 @@
 			files = (
 				63B53D642A6C53EC00C39EA4 /* Main.storyboard in Resources */,
 				63B53D712A6C53EC00C39EA4 /* Assets.xcassets in Resources */,
+				63B53FF72A6CB7DA00C39EA4 /* levels.json in Resources */,
 				63B53D6E2A6C53EC00C39EA4 /* ShaderTypes.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,9 +736,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B53FE02A6CB7DA00C39EA4 /* CTSStackQueue.swift in Sources */,
+				63B53FE92A6CB7DA00C39EA4 /* CTSQuadTree.swift in Sources */,
+				63B540632A6CB7FB00C39EA4 /* ECSPlayer.swift in Sources */,
+				63B540A52A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */,
+				63B53FC82A6CB7DA00C39EA4 /* CollectionExts.swift in Sources */,
+				63B5409F2A6CB7FB00C39EA4 /* Float4x4Exts.swift in Sources */,
+				63B540572A6CB7FB00C39EA4 /* ECSToggleButton.swift in Sources */,
+				63B540812A6CB7FB00C39EA4 /* AppCoreContext.swift in Sources */,
+				63B5407E2A6CB7FB00C39EA4 /* Color.swift in Sources */,
+				63B53FF82A6CB7DA00C39EA4 /* RenderService.swift in Sources */,
+				63B540542A6CB7FB00C39EA4 /* ECSMapButton.swift in Sources */,
+				63B540872A6CB7FB00C39EA4 /* AppCore.swift in Sources */,
+				63B5404E2A6CB7FB00C39EA4 /* ECSEntityManager.swift in Sources */,
+				63B5405A2A6CB7FB00C39EA4 /* ECSWall.swift in Sources */,
+				63B540332A6CB7FB00C39EA4 /* RNDRRenderer.swift in Sources */,
+				63B540392A6CB7FB00C39EA4 /* ScreenDimensions.swift in Sources */,
+				63B53FD72A6CB7DA00C39EA4 /* CTSEdge.swift in Sources */,
+				63B5407B2A6CB7FB00C39EA4 /* Tile.swift in Sources */,
 				63B53D692A6C53EC00C39EA4 /* Renderer.swift in Sources */,
 				63B53D662A6C53EC00C39EA4 /* Shaders.metal in Sources */,
+				63B53FCE2A6CB7DA00C39EA4 /* CTSVertex.swift in Sources */,
+				63B540752A6CB7FB00C39EA4 /* Input.swift in Sources */,
+				63B540452A6CB7FB00C39EA4 /* GameInput.swift in Sources */,
+				63B53FFE2A6CB7DA00C39EA4 /* Shaders.metal in Sources */,
+				63B53FFB2A6CB7DA00C39EA4 /* FileService.swift in Sources */,
+				63B53FF22A6CB7DA00C39EA4 /* ScopeFunctions.swift in Sources */,
+				63B53FDA2A6CB7DA00C39EA4 /* CTSHeap.swift in Sources */,
+				63B53FEC2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift in Sources */,
+				63B5405D2A6CB7FB00C39EA4 /* ECSGraphics.swift in Sources */,
+				63B540662A6CB7FB00C39EA4 /* ECSCamera.swift in Sources */,
+				63B53FEF2A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift in Sources */,
+				63B540512A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift in Sources */,
+				63B5408A2A6CB7FB00C39EA4 /* AppCoreConfig.swift in Sources */,
+				63B5409C2A6CB7FB00C39EA4 /* Float2Exts.swift in Sources */,
+				63B540362A6CB7FB00C39EA4 /* Model.swift in Sources */,
+				63B540932A6CB7FB00C39EA4 /* Float2x2Exts.swift in Sources */,
+				63B5408D2A6CB7FB00C39EA4 /* IntExts.swift in Sources */,
 				63B53D412A6C53EC00C39EA4 /* GameViewController.swift in Sources */,
+				63B5406F2A6CB7FB00C39EA4 /* ECSEntity.swift in Sources */,
+				63B540602A6CB7FB00C39EA4 /* ECSComponent.swift in Sources */,
+				63B53FD12A6CB7DA00C39EA4 /* CTSGraph.swift in Sources */,
+				63B5403F2A6CB7FB00C39EA4 /* Rect.swift in Sources */,
+				63B53FDD2A6CB7DA00C39EA4 /* CTSQueue.swift in Sources */,
+				63B540992A6CB7FB00C39EA4 /* FloatExts.swift in Sources */,
+				63B540962A6CB7FB00C39EA4 /* Float3Exts.swift in Sources */,
+				63B53FCB2A6CB7DA00C39EA4 /* CTSRingBuffer.swift in Sources */,
+				63B53FD42A6CB7DA00C39EA4 /* CTSAdjacencyList.swift in Sources */,
+				63B5404B2A6CB7FB00C39EA4 /* ECSScene.swift in Sources */,
+				63B540842A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift in Sources */,
+				63B540782A6CB7FB00C39EA4 /* World.swift in Sources */,
+				63B540422A6CB7FB00C39EA4 /* Game.swift in Sources */,
+				63B540722A6CB7FB00C39EA4 /* Thing.swift in Sources */,
+				63B540692A6CB7FB00C39EA4 /* ECSCollision.swift in Sources */,
+				63B53FE62A6CB7DA00C39EA4 /* CTSStack.swift in Sources */,
+				63B540A22A6CB7FB00C39EA4 /* Float4Exts.swift in Sources */,
+				63B53FE32A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift in Sources */,
+				63B5403C2A6CB7FB00C39EA4 /* TileMap.swift in Sources */,
+				63B540482A6CB7FB00C39EA4 /* MapData.swift in Sources */,
+				63B540902A6CB7FB00C39EA4 /* Float3x3Exts.swift in Sources */,
+				63B5406C2A6CB7FB00C39EA4 /* ECSInput.swift in Sources */,
 				63B53D3F2A6C53EC00C39EA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,9 +804,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B53FE12A6CB7DA00C39EA4 /* CTSStackQueue.swift in Sources */,
+				63B53FEA2A6CB7DA00C39EA4 /* CTSQuadTree.swift in Sources */,
+				63B540642A6CB7FB00C39EA4 /* ECSPlayer.swift in Sources */,
+				63B540A62A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */,
+				63B53FC92A6CB7DA00C39EA4 /* CollectionExts.swift in Sources */,
+				63B540A02A6CB7FB00C39EA4 /* Float4x4Exts.swift in Sources */,
+				63B540582A6CB7FB00C39EA4 /* ECSToggleButton.swift in Sources */,
+				63B540822A6CB7FB00C39EA4 /* AppCoreContext.swift in Sources */,
+				63B5407F2A6CB7FB00C39EA4 /* Color.swift in Sources */,
+				63B53FF92A6CB7DA00C39EA4 /* RenderService.swift in Sources */,
+				63B540552A6CB7FB00C39EA4 /* ECSMapButton.swift in Sources */,
+				63B540882A6CB7FB00C39EA4 /* AppCore.swift in Sources */,
+				63B5404F2A6CB7FB00C39EA4 /* ECSEntityManager.swift in Sources */,
+				63B5405B2A6CB7FB00C39EA4 /* ECSWall.swift in Sources */,
+				63B540342A6CB7FB00C39EA4 /* RNDRRenderer.swift in Sources */,
+				63B5403A2A6CB7FB00C39EA4 /* ScreenDimensions.swift in Sources */,
+				63B53FD82A6CB7DA00C39EA4 /* CTSEdge.swift in Sources */,
+				63B5407C2A6CB7FB00C39EA4 /* Tile.swift in Sources */,
 				63B53D6A2A6C53EC00C39EA4 /* Renderer.swift in Sources */,
 				63B53D672A6C53EC00C39EA4 /* Shaders.metal in Sources */,
+				63B53FCF2A6CB7DA00C39EA4 /* CTSVertex.swift in Sources */,
+				63B540762A6CB7FB00C39EA4 /* Input.swift in Sources */,
+				63B540462A6CB7FB00C39EA4 /* GameInput.swift in Sources */,
+				63B53FFF2A6CB7DA00C39EA4 /* Shaders.metal in Sources */,
+				63B53FFC2A6CB7DA00C39EA4 /* FileService.swift in Sources */,
+				63B53FF32A6CB7DA00C39EA4 /* ScopeFunctions.swift in Sources */,
+				63B53FDB2A6CB7DA00C39EA4 /* CTSHeap.swift in Sources */,
+				63B53FED2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift in Sources */,
+				63B5405E2A6CB7FB00C39EA4 /* ECSGraphics.swift in Sources */,
+				63B540672A6CB7FB00C39EA4 /* ECSCamera.swift in Sources */,
+				63B53FF02A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift in Sources */,
+				63B540522A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift in Sources */,
+				63B5408B2A6CB7FB00C39EA4 /* AppCoreConfig.swift in Sources */,
+				63B5409D2A6CB7FB00C39EA4 /* Float2Exts.swift in Sources */,
+				63B540372A6CB7FB00C39EA4 /* Model.swift in Sources */,
+				63B540942A6CB7FB00C39EA4 /* Float2x2Exts.swift in Sources */,
+				63B5408E2A6CB7FB00C39EA4 /* IntExts.swift in Sources */,
 				63B53D512A6C53EC00C39EA4 /* GameViewController.swift in Sources */,
+				63B540702A6CB7FB00C39EA4 /* ECSEntity.swift in Sources */,
+				63B540612A6CB7FB00C39EA4 /* ECSComponent.swift in Sources */,
+				63B53FD22A6CB7DA00C39EA4 /* CTSGraph.swift in Sources */,
+				63B540402A6CB7FB00C39EA4 /* Rect.swift in Sources */,
+				63B53FDE2A6CB7DA00C39EA4 /* CTSQueue.swift in Sources */,
+				63B5409A2A6CB7FB00C39EA4 /* FloatExts.swift in Sources */,
+				63B540972A6CB7FB00C39EA4 /* Float3Exts.swift in Sources */,
+				63B53FCC2A6CB7DA00C39EA4 /* CTSRingBuffer.swift in Sources */,
+				63B53FD52A6CB7DA00C39EA4 /* CTSAdjacencyList.swift in Sources */,
+				63B5404C2A6CB7FB00C39EA4 /* ECSScene.swift in Sources */,
+				63B540852A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift in Sources */,
+				63B540792A6CB7FB00C39EA4 /* World.swift in Sources */,
+				63B540432A6CB7FB00C39EA4 /* Game.swift in Sources */,
+				63B540732A6CB7FB00C39EA4 /* Thing.swift in Sources */,
+				63B5406A2A6CB7FB00C39EA4 /* ECSCollision.swift in Sources */,
+				63B53FE72A6CB7DA00C39EA4 /* CTSStack.swift in Sources */,
+				63B540A32A6CB7FB00C39EA4 /* Float4Exts.swift in Sources */,
+				63B53FE42A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift in Sources */,
+				63B5403D2A6CB7FB00C39EA4 /* TileMap.swift in Sources */,
+				63B540492A6CB7FB00C39EA4 /* MapData.swift in Sources */,
+				63B540912A6CB7FB00C39EA4 /* Float3x3Exts.swift in Sources */,
+				63B5406D2A6CB7FB00C39EA4 /* ECSInput.swift in Sources */,
 				63B53D4F2A6C53EC00C39EA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,9 +872,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B53FE22A6CB7DA00C39EA4 /* CTSStackQueue.swift in Sources */,
+				63B53FEB2A6CB7DA00C39EA4 /* CTSQuadTree.swift in Sources */,
+				63B540652A6CB7FB00C39EA4 /* ECSPlayer.swift in Sources */,
+				63B540A72A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */,
+				63B53FCA2A6CB7DA00C39EA4 /* CollectionExts.swift in Sources */,
+				63B540A12A6CB7FB00C39EA4 /* Float4x4Exts.swift in Sources */,
+				63B540592A6CB7FB00C39EA4 /* ECSToggleButton.swift in Sources */,
+				63B540832A6CB7FB00C39EA4 /* AppCoreContext.swift in Sources */,
+				63B540802A6CB7FB00C39EA4 /* Color.swift in Sources */,
+				63B53FFA2A6CB7DA00C39EA4 /* RenderService.swift in Sources */,
+				63B540562A6CB7FB00C39EA4 /* ECSMapButton.swift in Sources */,
+				63B540892A6CB7FB00C39EA4 /* AppCore.swift in Sources */,
+				63B540502A6CB7FB00C39EA4 /* ECSEntityManager.swift in Sources */,
+				63B5405C2A6CB7FB00C39EA4 /* ECSWall.swift in Sources */,
+				63B540352A6CB7FB00C39EA4 /* RNDRRenderer.swift in Sources */,
+				63B5403B2A6CB7FB00C39EA4 /* ScreenDimensions.swift in Sources */,
+				63B53FD92A6CB7DA00C39EA4 /* CTSEdge.swift in Sources */,
+				63B5407D2A6CB7FB00C39EA4 /* Tile.swift in Sources */,
 				63B53D6B2A6C53EC00C39EA4 /* Renderer.swift in Sources */,
 				63B53D682A6C53EC00C39EA4 /* Shaders.metal in Sources */,
+				63B53FD02A6CB7DA00C39EA4 /* CTSVertex.swift in Sources */,
+				63B540772A6CB7FB00C39EA4 /* Input.swift in Sources */,
+				63B540472A6CB7FB00C39EA4 /* GameInput.swift in Sources */,
+				63B540002A6CB7DA00C39EA4 /* Shaders.metal in Sources */,
+				63B53FFD2A6CB7DA00C39EA4 /* FileService.swift in Sources */,
+				63B53FF42A6CB7DA00C39EA4 /* ScopeFunctions.swift in Sources */,
+				63B53FDC2A6CB7DA00C39EA4 /* CTSHeap.swift in Sources */,
+				63B53FEE2A6CB7DA00C39EA4 /* CSTQuadTreePoint.swift in Sources */,
+				63B5405F2A6CB7FB00C39EA4 /* ECSGraphics.swift in Sources */,
+				63B540682A6CB7FB00C39EA4 /* ECSCamera.swift in Sources */,
+				63B53FF12A6CB7DA00C39EA4 /* CSTQuadTreeRect.swift in Sources */,
+				63B540532A6CB7FB00C39EA4 /* ECSBigObjectEntityManager.swift in Sources */,
+				63B5408C2A6CB7FB00C39EA4 /* AppCoreConfig.swift in Sources */,
+				63B5409E2A6CB7FB00C39EA4 /* Float2Exts.swift in Sources */,
+				63B540382A6CB7FB00C39EA4 /* Model.swift in Sources */,
+				63B540952A6CB7FB00C39EA4 /* Float2x2Exts.swift in Sources */,
+				63B5408F2A6CB7FB00C39EA4 /* IntExts.swift in Sources */,
 				63B53D612A6C53EC00C39EA4 /* GameViewController.swift in Sources */,
+				63B540712A6CB7FB00C39EA4 /* ECSEntity.swift in Sources */,
+				63B540622A6CB7FB00C39EA4 /* ECSComponent.swift in Sources */,
+				63B53FD32A6CB7DA00C39EA4 /* CTSGraph.swift in Sources */,
+				63B540412A6CB7FB00C39EA4 /* Rect.swift in Sources */,
+				63B53FDF2A6CB7DA00C39EA4 /* CTSQueue.swift in Sources */,
+				63B5409B2A6CB7FB00C39EA4 /* FloatExts.swift in Sources */,
+				63B540982A6CB7FB00C39EA4 /* Float3Exts.swift in Sources */,
+				63B53FCD2A6CB7DA00C39EA4 /* CTSRingBuffer.swift in Sources */,
+				63B53FD62A6CB7DA00C39EA4 /* CTSAdjacencyList.swift in Sources */,
+				63B5404D2A6CB7FB00C39EA4 /* ECSScene.swift in Sources */,
+				63B540862A6CB7FB00C39EA4 /* AppCoreServiceFactory.swift in Sources */,
+				63B5407A2A6CB7FB00C39EA4 /* World.swift in Sources */,
+				63B540442A6CB7FB00C39EA4 /* Game.swift in Sources */,
+				63B540742A6CB7FB00C39EA4 /* Thing.swift in Sources */,
+				63B5406B2A6CB7FB00C39EA4 /* ECSCollision.swift in Sources */,
+				63B53FE82A6CB7DA00C39EA4 /* CTSStack.swift in Sources */,
+				63B540A42A6CB7FB00C39EA4 /* Float4Exts.swift in Sources */,
+				63B53FE52A6CB7DA00C39EA4 /* CTSPriorityQueueDict.swift in Sources */,
+				63B5403E2A6CB7FB00C39EA4 /* TileMap.swift in Sources */,
+				63B5404A2A6CB7FB00C39EA4 /* MapData.swift in Sources */,
+				63B540922A6CB7FB00C39EA4 /* Float3x3Exts.swift in Sources */,
+				63B5406E2A6CB7FB00C39EA4 /* ECSInput.swift in Sources */,
 				63B53D5F2A6C53EC00C39EA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
