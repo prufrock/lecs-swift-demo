@@ -4,6 +4,7 @@
 
 import Foundation
 import simd
+import lecs_swift
 
 /**
  - Going to see if I can get by with just the config from AppCore for now.
@@ -13,6 +14,8 @@ struct World {
 
     //TODO: don't commit this...
     public var entityManager: ECSEntityManager
+
+    private var ecs: LECSWorld
 
     public var map: TileMap
 
@@ -68,6 +71,10 @@ struct World {
                 world.playing.toggle()
             }
         )
+
+        ecs = LECSWorldFixedSize()
+        let bunny = try! ecs.createEntity("bunny")
+        try! ecs.addComponent(bunny, LECSPosition2d(x: 1, y: 2))
 
         // whole iphone 14 screen is 10 across and 20 down
         let gridWidth = 9
@@ -163,6 +170,13 @@ struct World {
                     gameInput.selectedButton = selected
                 }
             }
+        }
+
+        ecs.select([LECSName.self, LECSPosition2d.self]) { world, components in
+            let name = components[0] as! LECSName
+            let position = components[1] as! LECSPosition2d
+
+            print("name \(name) position.y \(position.y)")
         }
 
         // Update all of the entities

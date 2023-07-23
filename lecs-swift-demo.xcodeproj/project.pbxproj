@@ -204,6 +204,9 @@
 		63B540A52A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */; };
 		63B540A62A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */; };
 		63B540A72A6CB7FB00C39EA4 /* DoubleExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */; };
+		63EA50422A6CE06200C52877 /* lecs-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 63EA50412A6CE06200C52877 /* lecs-swift */; };
+		63EA50442A6CE0C800C52877 /* lecs-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 63EA50432A6CE0C800C52877 /* lecs-swift */; };
+		63EA50462A6CE0CC00C52877 /* lecs-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 63EA50452A6CE0CC00C52877 /* lecs-swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -286,6 +289,7 @@
 		63B540302A6CB7FB00C39EA4 /* Float4x4Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float4x4Exts.swift; sourceTree = "<group>"; };
 		63B540312A6CB7FB00C39EA4 /* Float4Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float4Exts.swift; sourceTree = "<group>"; };
 		63B540322A6CB7FB00C39EA4 /* DoubleExts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExts.swift; sourceTree = "<group>"; };
+		63EA503F2A6CE00500C52877 /* lecs-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "lecs-swift"; path = "../lecs-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EA50422A6CE06200C52877 /* lecs-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EA50442A6CE0C800C52877 /* lecs-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EA50462A6CE0CC00C52877 /* lecs-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +323,7 @@
 		63B53D2D2A6C53EA00C39EA4 = {
 			isa = PBXGroup;
 			children = (
+				63EA503E2A6CE00500C52877 /* Packages */,
 				63B53D812A6C55CD00C39EA4 /* LICENSE */,
 				63B53D7D2A6C556500C39EA4 /* README.md */,
 				63B53D322A6C53EA00C39EA4 /* lecs-swift-demo Shared */,
@@ -323,6 +331,7 @@
 				63B53D4D2A6C53EC00C39EA4 /* lecs-swift-demo tvOS */,
 				63B53D5D2A6C53EC00C39EA4 /* lecs-swift-demo macOS */,
 				63B53D3C2A6C53EC00C39EA4 /* Products */,
+				63EA50402A6CE06200C52877 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -598,6 +607,21 @@
 			path = Math;
 			sourceTree = "<group>";
 		};
+		63EA503E2A6CE00500C52877 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63EA503F2A6CE00500C52877 /* lecs-swift */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		63EA50402A6CE06200C52877 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -614,6 +638,9 @@
 			dependencies = (
 			);
 			name = "lecs-swift-demo iOS";
+			packageProductDependencies = (
+				63EA50412A6CE06200C52877 /* lecs-swift */,
+			);
 			productName = "lecs-swift-demo iOS";
 			productReference = 63B53D3B2A6C53EC00C39EA4 /* lecs-swift-demo.app */;
 			productType = "com.apple.product-type.application";
@@ -631,6 +658,9 @@
 			dependencies = (
 			);
 			name = "lecs-swift-demo tvOS";
+			packageProductDependencies = (
+				63EA50432A6CE0C800C52877 /* lecs-swift */,
+			);
 			productName = "lecs-swift-demo tvOS";
 			productReference = 63B53D4C2A6C53EC00C39EA4 /* lecs-swift-demo.app */;
 			productType = "com.apple.product-type.application";
@@ -648,6 +678,9 @@
 			dependencies = (
 			);
 			name = "lecs-swift-demo macOS";
+			packageProductDependencies = (
+				63EA50452A6CE0CC00C52877 /* lecs-swift */,
+			);
 			productName = "lecs-swift-demo macOS";
 			productReference = 63B53D5C2A6C53EC00C39EA4 /* lecs-swift-demo.app */;
 			productType = "com.apple.product-type.application";
@@ -1311,6 +1344,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63EA50412A6CE06200C52877 /* lecs-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "lecs-swift";
+		};
+		63EA50432A6CE0C800C52877 /* lecs-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "lecs-swift";
+		};
+		63EA50452A6CE0CC00C52877 /* lecs-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "lecs-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 63B53D2E2A6C53EA00C39EA4 /* Project object */;
 }
