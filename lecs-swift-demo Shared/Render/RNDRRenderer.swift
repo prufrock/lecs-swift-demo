@@ -4,6 +4,7 @@
 
 import Foundation
 import MetalKit
+import lecs_swift
 
 
 protocol RNDRRenderer {
@@ -88,7 +89,8 @@ class RNDRMetalRenderer: RNDRRenderer {
                        """)
         }
 
-        renderSceneGraph(game.world.scene, game: game, screen: screen, encoder: encoder)
+//        renderSceneGraph(game.world.scene, game: game, screen: screen, encoder: encoder)
+        render(game: game, screen: screen, encoder: encoder)
         encoder.endEncoding()
 
         guard let drawable = view.currentDrawable else {
@@ -137,6 +139,49 @@ class RNDRMetalRenderer: RNDRRenderer {
             encoder.setVertexBytes(&finalTransform, length: MemoryLayout<Float4x4>.stride, index: 1)
 
             var fragmentColor = graphic.color
+
+            encoder.setFragmentBuffer(buffer, offset: 0, index: 0)
+            encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
+            encoder.drawPrimitives(type: model.primitiveType, vertexStart: 0, vertexCount: model.v.count)
+        }
+    }
+
+    private func render(game: Game, screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
+        let camera: ECSGraphics.Camera = .hud
+        game.world.ecs.select([LECSPosition2d.self]) { world, components in
+            let point = components[0] as! LECSPosition2d
+
+            let model: Model = Square()
+
+            let viewToClip = Float4x4.identity()
+            let clipToNdc = Float4x4.identity()
+            let ndcToScreen = Float4x4.identity()
+
+            //TODO: This is a hack, need to find a better way to get the camera. Maybe in the scene the graphic is a child of?
+            var finalTransform: Float4x4
+            switch camera {
+            case .hud:
+                finalTransform = ndcToScreen
+                    * clipToNdc
+                    * viewToClip
+                    * game.world.hudCamera!.camera!.projection()
+                    * Float4x4.translate(Float2(point.x, point.y))
+            case .world:
+                finalTransform = ndcToScreen
+                    * clipToNdc
+                    * viewToClip
+                    * game.world.camera!.camera!.projection()
+                    * Float4x4.translate(Float2(point.x, point.y))
+            }
+
+            let buffer = device.makeBuffer(bytes: model.v, length: MemoryLayout<Float3>.stride * model.v.count, options: [])
+
+            encoder.setRenderPipelineState(vertexPipeline)
+            encoder.setDepthStencilState(depthStencilState)
+            encoder.setVertexBuffer(buffer, offset: 0, index: 0)
+            encoder.setVertexBytes(&finalTransform, length: MemoryLayout<Float4x4>.stride, index: 1)
+
+            var fragmentColor = Float4(Color.orange)
 
             encoder.setFragmentBuffer(buffer, offset: 0, index: 0)
             encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)

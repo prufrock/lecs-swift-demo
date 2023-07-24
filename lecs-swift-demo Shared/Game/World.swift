@@ -15,7 +15,7 @@ struct World {
     //TODO: don't commit this...
     public var entityManager: ECSEntityManager
 
-    private var ecs: LECSWorld
+    public var ecs: LECSWorld
 
     public var map: TileMap
 
@@ -24,6 +24,8 @@ struct World {
             entityManager.scene
         }
     }
+
+    var updatePositionSystem: LECSSystemId
 
     public var playing = false
 
@@ -38,68 +40,29 @@ struct World {
         self.config = config
         self.map = map
         self.entityManager = ECSBigObjectEntityManager()
-        entityManager.createToggleButton(
-            id: "btn-play",
-            position: F2(7.5.f, 17.5.f),
-            buttonState: ECSToggleButton.State.NotToggled,
-            toggledAction: {
-                gameInput, ecsEntity, world in
-                world.playing.toggle()
-                world.map = TileMap(world.mapData, index: 0)
-                for y in 0..<world.map.height {
-                    for x in 0..<world.map.width {
-                        let position = Float2(x: Float(x) + 0.5, y: Float(y) + 0.5) // world, in the center of the tile
-                        let tile = world.map[x, y]
-                        switch tile {
-                        case .floor:
-                            if let entity = world.entityManager.find("wall" + String(x) + String(y)) {
-                                world.entityManager.remove(entity)
-                            }
-                            break
-                        case .wall:
-                            world.entityManager.createWall(
-                                id: "wall" + String(x) + String(y),
-                                position: position,
-                                radius: 0.5,
-                                camera: .world
-                            )
-                        }
-                    }
-                }
-            },
-            notToggledAction: { gameInput, ecsEntity, world in
-                world.playing.toggle()
-            }
-        )
 
         ecs = LECSWorldFixedSize()
         let bunny = try! ecs.createEntity("bunny")
-        try! ecs.addComponent(bunny, LECSPosition2d(x: 1, y: 2))
+        try! ecs.addComponent(bunny, LECSPosition2d(x: 3, y: 4))
+        try! ecs.addComponent(bunny, LECSVelocity2d(x: 0, y: 0.01))
+        let fox = try! ecs.createEntity("fox")
+        try! ecs.addComponent(fox, LECSPosition2d(x: 2, y: 7))
+        try! ecs.addComponent(fox, LECSVelocity2d(x: 0, y: 0.01))
 
-        // whole iphone 14 screen is 10 across and 20 down
-        let gridWidth = 9
-        let gridHeight = 9
-        let horizontalStart = 7
-        let totalButtons = (gridWidth * gridHeight)
-        let radius = 0.5.f
-        for i in 0..<totalButtons { // one less than total cuz grid starts at 0,0
-            let x = i % gridWidth
-            let y = (i / gridHeight)
-            entityManager.createMapButton(
-                id: "btn-map" + String(x) + "," + String(y),
-                position: Float2(x.f + radius,  y.f + radius + horizontalStart.f),
-                buttonState: mapData.tiles[x + y * mapData.width] == .floor ? .NotToggled : .Toggled,
-                toggledAction: { gameInput, ecsEntity, world in
-                    var tiles = world.mapData.tiles
-                    tiles[x + y * world.mapData.width] = .wall
-                    world.mapData = MapData(tiles: tiles, width: world.mapData.width)
-                },
-                notToggledAction: { gameInput, ecsEntity, world in
-                    var tiles = world.mapData.tiles
-                    tiles[x + y * world.mapData.width] = .floor
-                    world.mapData = MapData(tiles: tiles, width: world.mapData.width)
+        updatePositionSystem = ecs.addSystem(
+            "UpdatePosition",
+            selector: [LECSPosition2d.self, LECSVelocity2d.self]) { world, components in
+                var position = components[0] as! LECSPosition2d
+                var velocity = components[1] as! LECSVelocity2d
+
+                position.y = position.y + velocity.velocity.y
+                if position.y > 10 {
+                    velocity.velocity = Float2(velocity.velocity.x, -1 * velocity.velocity.y)
+                } else if position.y < 0 {
+                    velocity.velocity = Float2(velocity.velocity.x, -1 * velocity.velocity.y)
                 }
-            )
+
+                return [position, velocity]
         }
         reset()
     }
@@ -172,12 +135,7 @@ struct World {
             }
         }
 
-        ecs.select([LECSName.self, LECSPosition2d.self]) { world, components in
-            let name = components[0] as! LECSName
-            let position = components[1] as! LECSPosition2d
-
-            print("name \(name) position.y \(position.y)")
-        }
+        ecs.process(system: updatePositionSystem)
 
         // Update all of the entities
         entityManager.entities.forEach { entity in
