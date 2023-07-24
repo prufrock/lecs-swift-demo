@@ -41,7 +41,14 @@ struct World {
         self.map = map
         self.entityManager = ECSBigObjectEntityManager()
 
-        ecs = LECSWorldFixedSize()
+        ecs = LECSWorldFixedSize(archetypeSize: 400)
+        for i in 0..<40 {
+            let b = try! ecs.createEntity("b\(i)")
+            let column = Float(Int(i % 10))
+            let row = Float(Int(i / 10))
+            try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
+            try! ecs.addComponent(b, LECSVelocity2d(x: 0, y: 0.01))
+        }
         let bunny = try! ecs.createEntity("bunny")
         try! ecs.addComponent(bunny, LECSPosition2d(x: 3, y: 4))
         try! ecs.addComponent(bunny, LECSVelocity2d(x: 0, y: 0.01))

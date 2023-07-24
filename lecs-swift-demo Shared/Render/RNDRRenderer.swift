@@ -20,6 +20,7 @@ class RNDRMetalRenderer: RNDRRenderer {
     private let config: AppCoreConfig.Services.RenderService
     private let depthStencilState: MTLDepthStencilState
     private let vertexPipeline: MTLRenderPipelineState
+    private var drawable: MTLDrawable?
 
     public init(config: AppCoreConfig.Services.RenderService) {
         self.config = config
@@ -166,6 +167,7 @@ class RNDRMetalRenderer: RNDRRenderer {
                     * viewToClip
                     * game.world.hudCamera!.camera!.projection()
                     * Float4x4.translate(Float2(point.x, point.y))
+                    * Float4x4.scale(x: 0.1, y: 0.1, z: 0.1)
             case .world:
                 finalTransform = ndcToScreen
                     * clipToNdc
