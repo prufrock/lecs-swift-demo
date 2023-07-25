@@ -53,10 +53,10 @@ struct World {
         ]
 
         ecs = LECSWorldFixedSize(archetypeSize: 400)
-        for i in 0..<25 {
+        for i in 0..<40 {
             let b = try! ecs.createEntity("b\(i)")
             let column = Float(Int(i % 10))
-            let row = Float(Int(i / 10))
+            let row = Float(Int(i / 10)) + 10
             try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
             try! ecs.addComponent(b, LECSVelocity2d(x: 0, y: 0.01))
             let color = ColorA(Color.red)
@@ -69,7 +69,7 @@ struct World {
         try! ecs.addComponent(fox, LECSPosition2d(x: 2, y: 7))
         try! ecs.addComponent(fox, LECSVelocity2d(x: 0, y: 0.01))
 
-        for i in 0..<25 {
+        for i in 0..<40 {
             let column = Float(Int(i % 10))
             let row = Float(Int(i / 10))
             let id = LECSId(id: UInt(i))
@@ -89,7 +89,7 @@ struct World {
                 var velocity = components[1] as! LECSVelocity2d
 
                 position.y = position.y + velocity.velocity.y
-                if position.y > 10 {
+                if position.y > 20 {
                     velocity.velocity = Float2(velocity.velocity.x, -1 * velocity.velocity.y)
                 } else if position.y < 0 {
                     velocity.velocity = Float2(velocity.velocity.x, -1 * velocity.velocity.y)
@@ -109,7 +109,6 @@ struct World {
                 } else {
                     color.g = color.g - 0.001
                 }
-
 
                 if (color.g <= 0.1) {
                     color.increasing = true

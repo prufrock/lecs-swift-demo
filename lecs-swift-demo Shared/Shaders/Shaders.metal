@@ -31,6 +31,20 @@ vertex VertexOut vertex_main(Vertex v [[stage_in]],
     return vertex_out;
 }
 
+vertex VertexOut vertex_indexed(Vertex in [[stage_in]],
+                             constant float &point_size [[buffer(1)]],
+                             constant matrix_float4x4 *indexedModelMatrix [[buffer(2)]],
+                             uint vid [[vertex_id]],
+                             uint iid [[instance_id]]
+                             ) {
+    VertexOut vertex_out {
+        .position = indexedModelMatrix[iid] * float4(in.position, 1),
+        .point_size = point_size,
+    };
+
+    return vertex_out;
+}
+
 fragment float4 fragment_main(constant float4 &color [[buffer(0)]]) {
     return color;
 }

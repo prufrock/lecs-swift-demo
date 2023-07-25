@@ -20,7 +20,14 @@ class RNDRMetalRenderer: RNDRRenderer {
     private let config: AppCoreConfig.Services.RenderService
     private let depthStencilState: MTLDepthStencilState
     private let vertexPipeline: MTLRenderPipelineState
+    private let vertexIndexedPipeline: MTLRenderPipelineState
     private var drawable: MTLDrawable?
+
+    // TODO: Find a better home for these
+    let model: Model
+    let vertexBuffer: MTLBuffer
+    let index: [UInt16]
+    let indexBuffer: MTLBuffer
 
     public init(config: AppCoreConfig.Services.RenderService) {
         self.config = config
@@ -71,6 +78,25 @@ class RNDRMetalRenderer: RNDRRenderer {
                 $0.layouts[0].stride = MemoryLayout<Float3>.stride
             }
         })
+
+        vertexIndexedPipeline = try! device.makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor().apply {
+            $0.vertexFunction = library.makeFunction(name: "vertex_indexed")
+            $0.fragmentFunction = library.makeFunction(name: "fragment_main")
+            $0.colorAttachments[0].pixelFormat = .bgra8Unorm
+            $0.depthAttachmentPixelFormat = .depth32Float
+            $0.vertexDescriptor = MTLVertexDescriptor().apply {
+                // .position
+                $0.attributes[0].format = MTLVertexFormat.float3
+                $0.attributes[0].bufferIndex = 0
+                $0.attributes[0].offset = 0
+                $0.layouts[0].stride = MemoryLayout<Float3>.stride
+            }
+        })
+
+        model = Square()
+        vertexBuffer = device.makeBuffer(bytes: model.v, length: MemoryLayout<Float3>.stride * model.v.count, options: [])!
+        index = [0, 1, 2, 3, 4, 5]
+        indexBuffer = device.makeBuffer(bytes: index, length: MemoryLayout<UInt16>.stride * index.count, options: [])!
     }
 
     public func render(game: Game, to view: MTKView, with screen: ScreenDimensions) {
@@ -91,7 +117,8 @@ class RNDRMetalRenderer: RNDRRenderer {
         }
 
 //        renderSceneGraph(game.world.scene, game: game, screen: screen, encoder: encoder)
-        render(game: game, screen: screen, encoder: encoder)
+//        render(game: game, screen: screen, encoder: encoder)
+        renderIndexed(game: game, screen: screen, encoder: encoder)
 //        render(game: game, entities: game.world.entities, screen: screen, encoder: encoder)
         encoder.endEncoding()
 
@@ -191,6 +218,66 @@ class RNDRMetalRenderer: RNDRRenderer {
             encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
             encoder.drawPrimitives(type: model.primitiveType, vertexStart: 0, vertexCount: model.v.count)
         }
+    }
+
+    private func renderIndexed(game: Game, screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
+        let camera: ECSGraphics.Camera = .hud
+
+        let model: Model = Square()
+        let vertexBuffer = device.makeBuffer(bytes: model.v, length: MemoryLayout<Float3>.stride * model.v.count, options: [])
+        let index: [UInt16] = [0, 1, 2, 3, 4, 5]
+        let indexBuffer = device.makeBuffer(bytes: index, length: MemoryLayout<UInt16>.stride * index.count, options: [])!
+
+        var finalTransforms: [Float4x4] = []
+        var color: EntityColor = EntityColor(color: ColorA(Color.orange))
+
+        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components in
+            let point = components[0] as! LECSPosition2d
+            color = components[1] as! EntityColor
+
+
+            let viewToClip = Float4x4.identity()
+            let clipToNdc = Float4x4.identity()
+            let ndcToScreen = Float4x4.identity()
+
+            var finalTransform: Float4x4
+            switch camera {
+            case .hud:
+                finalTransform = ndcToScreen
+                    * clipToNdc
+                    * viewToClip
+                    * game.world.hudCamera!.camera!.projection()
+                    * Float4x4.translate(Float2(point.x, point.y))
+                    * Float4x4.scale(x: 0.1, y: 0.1, z: 0.1)
+            case .world:
+                finalTransform = ndcToScreen
+                    * clipToNdc
+                    * viewToClip
+                    * game.world.camera!.camera!.projection()
+                    * Float4x4.translate(Float2(point.x, point.y))
+            }
+            finalTransforms.append(finalTransform)
+        }
+        var pixelSize: Float = 1.0
+
+        encoder.setRenderPipelineState(vertexIndexedPipeline)
+        encoder.setDepthStencilState(depthStencilState)
+        encoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        encoder.setVertexBytes(&pixelSize, length: MemoryLayout<Float>.stride, index: 1)
+        encoder.setVertexBytes(finalTransforms, length: MemoryLayout<Float4x4>.stride * finalTransforms.count, index: 2)
+
+        var fragmentColor = Float4(x: color.r, y: color.g, z: color.b, w: color.a)
+
+        encoder.setFragmentBuffer(vertexBuffer, offset: 0, index: 0)
+        encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
+        encoder.drawIndexedPrimitives(
+            type: model.primitiveType,
+            indexCount: index.count,
+            indexType: .uint16,
+            indexBuffer: indexBuffer,
+            indexBufferOffset: 0,
+            instanceCount: finalTransforms.count
+        )
     }
 
     private func render(game: Game, entities: [[LECSComponent]], screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
