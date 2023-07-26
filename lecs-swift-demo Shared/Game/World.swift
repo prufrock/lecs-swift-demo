@@ -5,11 +5,21 @@
 import Foundation
 import simd
 import lecs_swift
+import os.log
 
 /**
  - Going to see if I can get by with just the config from AppCore for now.
  */
 struct World {
+    let signpostID: OSSignpostID
+    let pointsOfInterest = OSLog(subsystem: "com.dkanen.lecs-swift-demo", category: .pointsOfInterest)
+    let signposter: OSSignposter
+
+    // the entity manager only needs to update one to get the camera situated
+    private var entityManagerUpdated = false
+    public let useEcs: Bool
+    private let entityCount: Int
+
     private let config: AppCoreConfig.Game.World
 
     //TODO: don't commit this...
@@ -42,44 +52,45 @@ struct World {
     private var mapData: MapData = MapData(tiles: (0..<81).map { _ in .floor }, width: 9)
 
     init(config: AppCoreConfig.Game.World, map: TileMap) {
+        self.signposter = OSSignposter()
+        self.signpostID = signposter.makeSignpostID(from: pointsOfInterest)
+
         self.config = config
+        self.useEcs = config.useEcs
+        self.entityCount = config.entityCount
         self.map = map
         self.entityManager = ECSBigObjectEntityManager()
         self.entities = [
-            Array<LECSId>(repeating: LECSId(id: 0), count: 300),
-            Array<LECSName>(repeating: LECSName(name: ""), count: 300),
-            Array<LECSPosition2d>(repeating: LECSPosition2d(x: 0, y: 0), count: 300),
-            Array<LECSVelocity2d>(repeating: LECSVelocity2d(x: 0, y: 0), count: 300)
+            Array<LECSId>(repeating: LECSId(id: 0), count: self.entityCount),
+            Array<LECSName>(repeating: LECSName(name: ""), count: self.entityCount),
+            Array<LECSPosition2d>(repeating: LECSPosition2d(x: 0, y: 0), count: self.entityCount),
+            Array<LECSVelocity2d>(repeating: LECSVelocity2d(x: 0, y: 0), count: self.entityCount)
         ]
 
         ecs = LECSWorldFixedSize(archetypeSize: 400)
-        for i in 0..<40 {
-            let b = try! ecs.createEntity("b\(i)")
-            let column = Float(Int(i % 10))
-            let row = Float(Int(i / 10)) + 10
-            try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
-            try! ecs.addComponent(b, LECSVelocity2d(x: 0, y: 0.01))
-            let color = ColorA(Color.red)
-            try! ecs.addComponent(b, EntityColor(color: color))
-        }
-        let bunny = try! ecs.createEntity("bunny")
-        try! ecs.addComponent(bunny, LECSPosition2d(x: 3, y: 4))
-        try! ecs.addComponent(bunny, LECSVelocity2d(x: 0, y: 0.01))
-        let fox = try! ecs.createEntity("fox")
-        try! ecs.addComponent(fox, LECSPosition2d(x: 2, y: 7))
-        try! ecs.addComponent(fox, LECSVelocity2d(x: 0, y: 0.01))
-
-        for i in 0..<40 {
-            let column = Float(Int(i % 10))
-            let row = Float(Int(i / 10))
-            let id = LECSId(id: UInt(i))
-            let name = LECSName(name: "b\(i)")
-            let position = LECSPosition2d(x: column, y: row)
-            let velocity = LECSVelocity2d(x: 0, y: 0.01)
-            entities[0][i] = id
-            entities[1][i] = name
-            entities[2][i] = position
-            entities[3][i] = velocity
+        if useEcs {
+            for i in 0..<self.entityCount {
+                let b = try! ecs.createEntity("b\(i)")
+                let column = Float(Int(i % 10))
+                let row = Float(Int(i / 10)) + 10
+                try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
+                try! ecs.addComponent(b, LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01)))
+                let color = ColorA(Color.red)
+                try! ecs.addComponent(b, EntityColor(color: color))
+            }
+        } else {
+            for i in 0..<self.entityCount {
+                let column = Float(Int(i % 10))
+                let row = Float(Int(i / 10))
+                let id = LECSId(id: UInt(i))
+                let name = LECSName(name: "b\(i)")
+                let position = LECSPosition2d(x: column, y: row)
+                let velocity = LECSVelocity2d(x: 0, y: 0.01)
+                entities[0][i] = id
+                entities[1][i] = name
+                entities[2][i] = position
+                entities[3][i] = velocity
+            }
         }
 
         updatePositionSystem = ecs.addSystem(
@@ -87,6 +98,13 @@ struct World {
             selector: [LECSPosition2d.self, LECSVelocity2d.self]) { world, components in
                 var position = components[0] as! LECSPosition2d
                 var velocity = components[1] as! LECSVelocity2d
+
+                position.x = position.x + velocity.velocity.x
+                if position.x > 9 {
+                    velocity.velocity = Float2(-1 * velocity.velocity.x, velocity.velocity.y)
+                } else if position.x < 0 {
+                    velocity.velocity = Float2(-1 * velocity.velocity.x, velocity.velocity.y)
+                }
 
                 position.y = position.y + velocity.velocity.y
                 if position.y > 20 {
@@ -189,36 +207,31 @@ struct World {
     mutating func update(timeStep: Float, input: Input) {
         var gameInput = GameInput(externalInput: input, selectedButtonId: nil)
 
-//        if (input.isTouched) {
-//            let position = input.touchCoordinates
-//                    .screenToNdc(screenWidth: input.viewWidth, screenHeight: input.viewHeight, flipY: true)
-//                    .ndcToWorld(camera: hudCamera!.camera!)
-//            let eLocation = entityManager.createProp(id: "touchLocation", position: position, radius: 0.12, camera: .hud)
-//
-//            if let collision = eLocation.collision {
-//                if let selected = entityManager.pickCollision(at: collision) {
-//                    print("collided entity \(selected.id)")
-//                    gameInput.selectedButton = selected
-//                }
-//            }
-//        }
-
-        ecs.process(system: updatePositionSystem)
-        ecs.process(system: updateColorSystem)
-
-        // Update all of the entities
-        entityManager.entities.forEach { entity in
-            // TODO: using this until I find a better way to skip drawing a wall that's now a floor.
-            if var newEntity = entityManager.find(entity.id) {
-                entityManager.update(newEntity.update(input: gameInput, world: &self))
+        if (useEcs) {
+            os_signpost(.begin, log: pointsOfInterest, name: "process ecs", signpostID: signpostID)
+            ecs.process(system: updatePositionSystem)
+            //ecs.process(system: updateColorSystem)
+            os_signpost(.end, log: pointsOfInterest, name: "process ecs", signpostID: signpostID)
+        } else {
+            os_signpost(.begin, log: pointsOfInterest, name: "process arrays", signpostID: signpostID)
+            for i in 0..<(entities[0].count) {
+                let updated = entitiesUpdatePositionSystem([entities[2][i], entities[3][i]])
+                entities[2][i] = updated[0]
+                entities[3][i] = updated[1]
             }
+            os_signpost(.end, log: pointsOfInterest, name: "process arrays", signpostID: signpostID)
         }
 
-//        for i in 0..<(entities[0].count - 1) {
-//            let updated = entitiesUpdatePositionSystem([entities[2][i], entities[3][i]])
-//            entities[2][i] = updated[0]
-//            entities[3][i] = updated[1]
-//        }
+        // Update all of the entities
+        if !entityManagerUpdated {
+            entityManager.entities.forEach { entity in
+                // TODO: using this until I find a better way to skip drawing a wall that's now a floor.
+                if var newEntity = entityManager.find(entity.id) {
+                    entityManager.update(newEntity.update(input: gameInput, world: &self))
+                }
+            }
+            entityManagerUpdated = true
+        }
 
         if let camera = hudCamera {
             hudCamera = entityManager.find(camera.id)
@@ -247,6 +260,14 @@ struct EntityColor: LECSComponent {
     var b: Float
     var a: Float
     var increasing: Bool
+
+    public init() {
+        r = 0
+        g = 0
+        b = 0
+        a = 0
+        self.increasing = false
+    }
 
     public init(color: ColorA, increasing: Bool = false) {
         r = color.r

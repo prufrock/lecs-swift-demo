@@ -22,6 +22,7 @@ class RNDRMetalRenderer: RNDRRenderer {
     private let vertexPipeline: MTLRenderPipelineState
     private let vertexIndexedPipeline: MTLRenderPipelineState
     private var drawable: MTLDrawable?
+    private var renderEcs: Bool
 
     // TODO: Find a better home for these
     let model: Model
@@ -31,6 +32,7 @@ class RNDRMetalRenderer: RNDRRenderer {
 
     public init(config: AppCoreConfig.Services.RenderService) {
         self.config = config
+        renderEcs = true
 
         guard let newDevice = MTLCreateSystemDefaultDevice() else {
             fatalError("""
@@ -118,8 +120,11 @@ class RNDRMetalRenderer: RNDRRenderer {
 
 //        renderSceneGraph(game.world.scene, game: game, screen: screen, encoder: encoder)
 //        render(game: game, screen: screen, encoder: encoder)
-        renderIndexed(game: game, screen: screen, encoder: encoder)
-//        render(game: game, entities: game.world.entities, screen: screen, encoder: encoder)
+        if (game.world.useEcs) {
+            renderIndexed(game: game, screen: screen, encoder: encoder)
+        } else {
+            renderIndexed(game: game, entities: game.world.entities, screen: screen, encoder: encoder)
+        }
         encoder.endEncoding()
 
         guard let drawable = view.currentDrawable else {
@@ -130,6 +135,7 @@ class RNDRMetalRenderer: RNDRRenderer {
 
         commandBuffer.present(drawable)
         commandBuffer.commit()
+        commandBuffer.waitUntilCompleted()
     }
 
     private func renderSceneGraph(_ graph: ECSSceneGraph, game: Game, screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
@@ -322,6 +328,65 @@ class RNDRMetalRenderer: RNDRRenderer {
             encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
             encoder.drawPrimitives(type: model.primitiveType, vertexStart: 0, vertexCount: model.v.count)
         }
+    }
+
+    private func renderIndexed(game: Game, entities: [[LECSComponent]], screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
+        let camera: ECSGraphics.Camera = .hud
+
+        let model: Model = Square()
+        let vertexBuffer = device.makeBuffer(bytes: model.v, length: MemoryLayout<Float3>.stride * model.v.count, options: [])
+        let index: [UInt16] = [0, 1, 2, 3, 4, 5]
+        let indexBuffer = device.makeBuffer(bytes: index, length: MemoryLayout<UInt16>.stride * index.count, options: [])!
+
+        var finalTransforms: [Float4x4] = []
+        var color = Color.orange
+
+        entities[2].forEach { component in
+            let point = component as! LECSPosition2d
+
+
+            let viewToClip = Float4x4.identity()
+            let clipToNdc = Float4x4.identity()
+            let ndcToScreen = Float4x4.identity()
+
+            var finalTransform: Float4x4
+            switch camera {
+            case .hud:
+                finalTransform = ndcToScreen
+                    * clipToNdc
+                    * viewToClip
+                    * game.world.hudCamera!.camera!.projection()
+                    * Float4x4.translate(Float2(point.x, point.y))
+                    * Float4x4.scale(x: 0.1, y: 0.1, z: 0.1)
+            case .world:
+                finalTransform = ndcToScreen
+                    * clipToNdc
+                    * viewToClip
+                    * game.world.camera!.camera!.projection()
+                    * Float4x4.translate(Float2(point.x, point.y))
+            }
+            finalTransforms.append(finalTransform)
+        }
+        var pixelSize: Float = 1.0
+
+        encoder.setRenderPipelineState(vertexIndexedPipeline)
+        encoder.setDepthStencilState(depthStencilState)
+        encoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        encoder.setVertexBytes(&pixelSize, length: MemoryLayout<Float>.stride, index: 1)
+        encoder.setVertexBytes(finalTransforms, length: MemoryLayout<Float4x4>.stride * finalTransforms.count, index: 2)
+
+        var fragmentColor = Float4(color)
+
+        encoder.setFragmentBuffer(vertexBuffer, offset: 0, index: 0)
+        encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
+        encoder.drawIndexedPrimitives(
+            type: model.primitiveType,
+            indexCount: index.count,
+            indexType: .uint16,
+            indexBuffer: indexBuffer,
+            indexBufferOffset: 0,
+            instanceCount: finalTransforms.count
+        )
     }
 }
 
