@@ -67,12 +67,12 @@ struct World {
             Array<LECSVelocity2d>(repeating: LECSVelocity2d(x: 0, y: 0), count: self.entityCount)
         ]
 
-        ecs = LECSWorldFixedSize(archetypeSize: 400)
+        ecs = LECSWorldFixedSize(archetypeSize: self.entityCount)
         if useEcs {
             for i in 0..<self.entityCount {
                 let b = try! ecs.createEntity("b\(i)")
-                let column = Float(Int(i % 10))
-                let row = Float(Int(i / 10)) + 10
+                let column = (Float(i % 20) / 2.8) + 1.4
+                let row = Float(i / 20) + 6
                 try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
                 try! ecs.addComponent(b, LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01)))
                 let color = ColorA(Color.red)
@@ -80,12 +80,12 @@ struct World {
             }
         } else {
             for i in 0..<self.entityCount {
-                let column = Float(Int(i % 10))
-                let row = Float(Int(i / 10))
+                let column = (Float(i % 20) / 2.8) + 1.4
+                let row = Float(i / 20) + 6
                 let id = LECSId(id: UInt(i))
                 let name = LECSName(name: "b\(i)")
                 let position = LECSPosition2d(x: column, y: row)
-                let velocity = LECSVelocity2d(x: 0, y: 0.01)
+                let velocity = LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01))
                 entities[0][i] = id
                 entities[1][i] = name
                 entities[2][i] = position
@@ -141,12 +141,20 @@ struct World {
             var position = components[0] as! LECSPosition2d
             var velocity = components[1] as! LECSVelocity2d
 
+            position.x = position.x + velocity.velocity.x
+            if position.x > 9 {
+                velocity.velocity = Float2(-1 * velocity.velocity.x, velocity.velocity.y)
+            } else if position.x < 0 {
+                velocity.velocity = Float2(-1 * velocity.velocity.x, velocity.velocity.y)
+            }
+
             position.y = position.y + velocity.velocity.y
-            if position.y > 10 {
+            if position.y > 20 {
                 velocity.velocity = Float2(velocity.velocity.x, -1 * velocity.velocity.y)
             } else if position.y < 0 {
                 velocity.velocity = Float2(velocity.velocity.x, -1 * velocity.velocity.y)
             }
+
 
             return [position, velocity]
         }

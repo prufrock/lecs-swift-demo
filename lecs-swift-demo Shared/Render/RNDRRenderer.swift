@@ -234,8 +234,10 @@ class RNDRMetalRenderer: RNDRRenderer {
         let index: [UInt16] = [0, 1, 2, 3, 4, 5]
         let indexBuffer = device.makeBuffer(bytes: index, length: MemoryLayout<UInt16>.stride * index.count, options: [])!
 
-        var finalTransforms: [Float4x4] = []
         var color: EntityColor = EntityColor(color: ColorA(Color.orange))
+        var currentFinalTransformsIndex = 0
+        var finalTransforms: [[Float4x4]] = []
+        finalTransforms.append([])
 
         game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components in
             let point = components[0] as! LECSPosition2d
@@ -262,7 +264,12 @@ class RNDRMetalRenderer: RNDRRenderer {
                     * game.world.camera!.camera!.projection()
                     * Float4x4.translate(Float2(point.x, point.y))
             }
-            finalTransforms.append(finalTransform)
+            finalTransforms[currentFinalTransformsIndex].append(finalTransform)
+
+            if finalTransforms[currentFinalTransformsIndex].count >= 64 {
+                finalTransforms.append([])
+                currentFinalTransformsIndex += 1
+            }
         }
         var pixelSize: Float = 1.0
 
@@ -270,20 +277,23 @@ class RNDRMetalRenderer: RNDRRenderer {
         encoder.setDepthStencilState(depthStencilState)
         encoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         encoder.setVertexBytes(&pixelSize, length: MemoryLayout<Float>.stride, index: 1)
-        encoder.setVertexBytes(finalTransforms, length: MemoryLayout<Float4x4>.stride * finalTransforms.count, index: 2)
 
         var fragmentColor = Float4(x: color.r, y: color.g, z: color.b, w: color.a)
 
         encoder.setFragmentBuffer(vertexBuffer, offset: 0, index: 0)
         encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
-        encoder.drawIndexedPrimitives(
-            type: model.primitiveType,
-            indexCount: index.count,
-            indexType: .uint16,
-            indexBuffer: indexBuffer,
-            indexBufferOffset: 0,
-            instanceCount: finalTransforms.count
-        )
+
+        finalTransforms.forEach {
+            encoder.setVertexBytes($0, length: MemoryLayout<Float4x4>.stride * $0.count, index: 2)
+            encoder.drawIndexedPrimitives(
+                type: model.primitiveType,
+                indexCount: index.count,
+                indexType: .uint16,
+                indexBuffer: indexBuffer,
+                indexBufferOffset: 0,
+                instanceCount: $0.count
+            )
+        }
     }
 
     private func render(game: Game, entities: [[LECSComponent]], screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
@@ -338,7 +348,9 @@ class RNDRMetalRenderer: RNDRRenderer {
         let index: [UInt16] = [0, 1, 2, 3, 4, 5]
         let indexBuffer = device.makeBuffer(bytes: index, length: MemoryLayout<UInt16>.stride * index.count, options: [])!
 
-        var finalTransforms: [Float4x4] = []
+        var currentFinalTransformsIndex = 0
+        var finalTransforms: [[Float4x4]] = []
+        finalTransforms.append([])
         var color = Color.orange
 
         entities[2].forEach { component in
@@ -365,7 +377,12 @@ class RNDRMetalRenderer: RNDRRenderer {
                     * game.world.camera!.camera!.projection()
                     * Float4x4.translate(Float2(point.x, point.y))
             }
-            finalTransforms.append(finalTransform)
+            finalTransforms[currentFinalTransformsIndex].append(finalTransform)
+
+            if finalTransforms[currentFinalTransformsIndex].count >= 64 {
+                finalTransforms.append([])
+                currentFinalTransformsIndex += 1
+            }
         }
         var pixelSize: Float = 1.0
 
@@ -373,20 +390,23 @@ class RNDRMetalRenderer: RNDRRenderer {
         encoder.setDepthStencilState(depthStencilState)
         encoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         encoder.setVertexBytes(&pixelSize, length: MemoryLayout<Float>.stride, index: 1)
-        encoder.setVertexBytes(finalTransforms, length: MemoryLayout<Float4x4>.stride * finalTransforms.count, index: 2)
 
         var fragmentColor = Float4(color)
 
         encoder.setFragmentBuffer(vertexBuffer, offset: 0, index: 0)
         encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
-        encoder.drawIndexedPrimitives(
-            type: model.primitiveType,
-            indexCount: index.count,
-            indexType: .uint16,
-            indexBuffer: indexBuffer,
-            indexBufferOffset: 0,
-            instanceCount: finalTransforms.count
-        )
+
+        finalTransforms.forEach {
+            encoder.setVertexBytes($0, length: MemoryLayout<Float4x4>.stride * $0.count, index: 2)
+            encoder.drawIndexedPrimitives(
+                type: model.primitiveType,
+                indexCount: index.count,
+                indexType: .uint16,
+                indexBuffer: indexBuffer,
+                indexBufferOffset: 0,
+                instanceCount: $0.count
+            )
+        }
     }
 }
 
