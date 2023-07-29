@@ -353,8 +353,8 @@ class RNDRMetalRenderer: RNDRRenderer {
         finalTransforms.append([])
         var color = Color.orange
 
-        entities[2].forEach { component in
-            let point = component as! LECSPosition2d
+        entities.forEach { component in
+            let point = component[2] as! LECSPosition2d
 
 
             let viewToClip = Float4x4.identity()

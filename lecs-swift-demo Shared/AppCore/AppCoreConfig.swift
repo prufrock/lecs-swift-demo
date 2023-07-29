@@ -27,7 +27,7 @@ public struct AppCoreConfig {
 
         public struct World {
             public let playerTurningSpeed: Float = .pi/2
-            public let useEcs = false
+            public let useEcs = true
             public let entityCount = 200
         }
     }

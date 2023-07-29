@@ -60,19 +60,20 @@ struct World {
         self.entityCount = config.entityCount
         self.map = map
         self.entityManager = ECSBigObjectEntityManager()
-        self.entities = [
-            Array<LECSId>(repeating: LECSId(id: 0), count: self.entityCount),
-            Array<LECSName>(repeating: LECSName(name: ""), count: self.entityCount),
-            Array<LECSPosition2d>(repeating: LECSPosition2d(x: 0, y: 0), count: self.entityCount),
-            Array<LECSVelocity2d>(repeating: LECSVelocity2d(x: 0, y: 0), count: self.entityCount)
-        ]
+        self.entities = Array<[LECSComponent]>(repeating: [
+                LECSId(id: 0),
+                LECSName(name: ""),
+                LECSPosition2d(x: 0, y: 0),
+                LECSVelocity2d(x: 0, y: 0)
+            ], count: self.entityCount)
+
 
         ecs = LECSWorldFixedSize(archetypeSize: self.entityCount)
         if useEcs {
             for i in 0..<self.entityCount {
                 let b = try! ecs.createEntity("b\(i)")
-                let column = (Float(i % 20) / 2.8) + 1.4
-                let row = Float(i / 20) + 6
+                let column = Float.random(in: 0..<19)
+                let row = Float.random(in: 0..<19) + 0.5
                 try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
                 try! ecs.addComponent(b, LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01)))
                 let color = ColorA(Color.red)
@@ -80,24 +81,24 @@ struct World {
             }
         } else {
             for i in 0..<self.entityCount {
-                let column = (Float(i % 20) / 2.8) + 1.4
-                let row = Float(i / 20) + 6
+                let column = Float.random(in: 0..<19)
+                let row = Float.random(in: 0..<19) + 0.5
                 let id = LECSId(id: UInt(i))
                 let name = LECSName(name: "b\(i)")
                 let position = LECSPosition2d(x: column, y: row)
                 let velocity = LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01))
-                entities[0][i] = id
-                entities[1][i] = name
-                entities[2][i] = position
-                entities[3][i] = velocity
+                entities[i][0] = id
+                entities[i][1] = name
+                entities[i][2] = position
+                entities[i][3] = velocity
             }
         }
 
         updatePositionSystem = ecs.addSystem(
             "UpdatePosition",
-            selector: [LECSPosition2d.self, LECSVelocity2d.self]) { world, components in
-                var position = components[0] as! LECSPosition2d
-                var velocity = components[1] as! LECSVelocity2d
+            selector: [LECSPosition2d.self, LECSVelocity2d.self]) { world, components, columns in
+                var position = components[columns[0]] as! LECSPosition2d
+                var velocity = components[columns[1]] as! LECSVelocity2d
 
                 position.x = position.x + velocity.velocity.x
                 if position.x > 9 {
@@ -119,8 +120,8 @@ struct World {
 
         updateColorSystem = ecs.addSystem(
             "UpdateColor",
-            selector: [EntityColor.self]) { world, components in
-                var color = components[0] as! EntityColor
+            selector: [EntityColor.self]) { world, components, columns in
+                var color = components[columns[0]] as! EntityColor
 
                 if color.increasing {
                     color.g = color.g + 0.001
@@ -222,10 +223,10 @@ struct World {
             os_signpost(.end, log: pointsOfInterest, name: "process ecs", signpostID: signpostID)
         } else {
             os_signpost(.begin, log: pointsOfInterest, name: "process arrays", signpostID: signpostID)
-            for i in 0..<(entities[0].count) {
-                let updated = entitiesUpdatePositionSystem([entities[2][i], entities[3][i]])
-                entities[2][i] = updated[0]
-                entities[3][i] = updated[1]
+            for i in 0..<(entities.count) {
+                let updated = entitiesUpdatePositionSystem([entities[i][2], entities[i][3]])
+                entities[i][2] = updated[0]
+                entities[i][3] = updated[1]
             }
             os_signpost(.end, log: pointsOfInterest, name: "process arrays", signpostID: signpostID)
         }
