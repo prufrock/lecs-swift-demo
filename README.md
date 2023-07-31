@@ -3,10 +3,12 @@ A simple demo of using lecs-swift in an app
 
 ## 7500 entities at 60 fps
 Apply random velocity changes to 7500 entities.
+
 ![7500 red squares bouncing around on an iphone screen](https://res.cloudinary.com/demmholkv/image/upload/v1690761464/7500e-60fps_nviijp.gif)
 
 ## 10,000 entities at 50 fps(need to optimize render pipeline)
 Apply random velocity changes to 10000 entities.
+
 ![10,000 red squares bouncing around on an iphone screen](https://res.cloudinary.com/demmholkv/image/upload/v1690761595/10000e-50fps_vgbja4.gif)
 
 ## 200 entities at 60fps
