@@ -9,7 +9,7 @@ Apply random velocity changes to 7500 entities.
 ## 10,000 entities at 50 fps(need to optimize render pipeline)
 Apply random velocity changes to 10000 entities.
 
-![10,000 red squares bouncing around on an iphone screen](https://res.cloudinary.com/demmholkv/image/upload/v1690761595/10000e-50fps_vgbja4.gif)
+![10,000 red squares bouncing around on an iphone screen](https://res.cloudinary.com/demmholkv/image/upload/v1690762394/10000e-50fps_ybjexh.gif)
 
 ## 200 entities at 60fps
 With this number of entities it's easiest to see the difference in timing between using only arrays and using lecs-swift. Arrays are about 40 microseconds faster than lecs-swift. That's not a bad price to pay for being able to select the arrays to process :smile:.
