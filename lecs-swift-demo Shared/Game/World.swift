@@ -68,16 +68,16 @@ struct World {
             ], count: self.entityCount)
 
 
-        ecs = LECSWorldFixedSize(archetypeSize: self.entityCount)
+        ecs = LECSCreateWorld(archetypeSize: self.entityCount)
         if useEcs {
             for i in 0..<self.entityCount {
-                let b = try! ecs.createEntity("b\(i)")
+                let b = ecs.createEntity("b\(i)")
                 let column = Float.random(in: 0..<19)
                 let row = Float.random(in: 0..<19) + 0.5
-                try! ecs.addComponent(b, LECSPosition2d(x: column, y: row))
-                try! ecs.addComponent(b, LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01)))
+                ecs.addComponent(b, LECSPosition2d(x: column, y: row))
+                ecs.addComponent(b, LECSVelocity2d(x: Float.random(in: -0.01..<0.01), y: Float.random(in: -0.01..<0.01)))
                 let color = ColorA(Color.red)
-                try! ecs.addComponent(b, EntityColor(color: color))
+                ecs.addComponent(b, EntityColor(color: color))
             }
         } else {
             for i in 0..<self.entityCount {

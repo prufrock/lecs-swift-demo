@@ -33,12 +33,13 @@ vertex VertexOut vertex_main(Vertex v [[stage_in]],
 
 vertex VertexOut vertex_indexed(Vertex in [[stage_in]],
                              constant float &point_size [[buffer(1)]],
-                             constant matrix_float4x4 *indexedModelMatrix [[buffer(2)]],
+                             constant matrix_float4x4 &camera [[buffer(2)]],
+                             constant matrix_float4x4 *indexedModelMatrix [[buffer(3)]],
                              uint vid [[vertex_id]],
                              uint iid [[instance_id]]
                              ) {
     VertexOut vertex_out {
-        .position = indexedModelMatrix[iid] * float4(in.position, 1),
+        .position = camera * indexedModelMatrix[iid] * float4(in.position, 1),
         .point_size = point_size,
     };
 

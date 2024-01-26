@@ -183,9 +183,9 @@ class RNDRMetalRenderer: RNDRRenderer {
 
     private func render(game: Game, screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
         let camera: ECSGraphics.Camera = .hud
-        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components in
-            let point = components[0] as! LECSPosition2d
-            let color = components[1] as! EntityColor
+        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components, columns in
+            let point = components[columns[0]] as! LECSPosition2d
+            let color = components[columns[1]] as! EntityColor
 
             let model: Model = Square()
 
@@ -227,7 +227,7 @@ class RNDRMetalRenderer: RNDRRenderer {
     }
 
     private func renderIndexed(game: Game, screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
-        let camera: ECSGraphics.Camera = .hud
+        var camera = game.world.hudCamera!.camera!.projection()
 
         let model: Model = Square()
         let vertexBuffer = device.makeBuffer(bytes: model.v, length: MemoryLayout<Float3>.stride * model.v.count, options: [])
@@ -239,31 +239,13 @@ class RNDRMetalRenderer: RNDRRenderer {
         var finalTransforms: [[Float4x4]] = []
         finalTransforms.append([])
 
-        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components in
-            let point = components[0] as! LECSPosition2d
-            color = components[1] as! EntityColor
+        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components, columns in
+            let point = components[columns[0]] as! LECSPosition2d
+            color = components[columns[1]] as! EntityColor
 
 
-            let viewToClip = Float4x4.identity()
-            let clipToNdc = Float4x4.identity()
-            let ndcToScreen = Float4x4.identity()
-
-            var finalTransform: Float4x4
-            switch camera {
-            case .hud:
-                finalTransform = ndcToScreen
-                    * clipToNdc
-                    * viewToClip
-                    * game.world.hudCamera!.camera!.projection()
-                    * Float4x4.translate(Float2(point.x, point.y))
-                    * Float4x4.scale(x: 0.1, y: 0.1, z: 0.1)
-            case .world:
-                finalTransform = ndcToScreen
-                    * clipToNdc
-                    * viewToClip
-                    * game.world.camera!.camera!.projection()
-                    * Float4x4.translate(Float2(point.x, point.y))
-            }
+            var finalTransform = Float4x4.translate(Float2(point.x, point.y))
+                * Float4x4.scale(x: 0.1, y: 0.1, z: 0.1)
             finalTransforms[currentFinalTransformsIndex].append(finalTransform)
 
             if finalTransforms[currentFinalTransformsIndex].count >= 64 {
@@ -277,14 +259,16 @@ class RNDRMetalRenderer: RNDRRenderer {
         encoder.setDepthStencilState(depthStencilState)
         encoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         encoder.setVertexBytes(&pixelSize, length: MemoryLayout<Float>.stride, index: 1)
+        encoder.setVertexBytes(&camera, length: MemoryLayout<Float4x4>.stride, index: 2)
 
         var fragmentColor = Float4(x: color.r, y: color.g, z: color.b, w: color.a)
 
         encoder.setFragmentBuffer(vertexBuffer, offset: 0, index: 0)
         encoder.setFragmentBytes(&fragmentColor, length: MemoryLayout<Float3>.stride, index: 0)
 
+        // Draw each chunk
         finalTransforms.forEach {
-            encoder.setVertexBytes($0, length: MemoryLayout<Float4x4>.stride * $0.count, index: 2)
+            encoder.setVertexBytes($0, length: MemoryLayout<Float4x4>.stride * $0.count, index: 3)
             encoder.drawIndexedPrimitives(
                 type: model.primitiveType,
                 indexCount: index.count,
