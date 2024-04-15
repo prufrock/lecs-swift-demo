@@ -183,9 +183,9 @@ class RNDRMetalRenderer: RNDRRenderer {
 
     private func render(game: Game, screen: ScreenDimensions, encoder: MTLRenderCommandEncoder) {
         let camera: ECSGraphics.Camera = .hud
-        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components, columns in
-            let point = components[columns[0]] as! LECSPosition2d
-            let color = components[columns[1]] as! EntityColor
+        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { components, columns in
+            let point = components[columns[0].col] as! LECSPosition2d
+            let color = components[columns[1].col] as! EntityColor
 
             let model: Model = Square()
 
@@ -239,9 +239,9 @@ class RNDRMetalRenderer: RNDRRenderer {
         var finalTransforms: [[Float4x4]] = []
         finalTransforms.append([])
 
-        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { world, components, columns in
-            let point = components[columns[0]] as! LECSPosition2d
-            color = components[columns[1]] as! EntityColor
+        game.world.ecs.select([LECSPosition2d.self, EntityColor.self]) { components, columns in
+            let point = components[columns[0].col] as! LECSPosition2d
+            color = components[columns[1].col] as! EntityColor
 
 
             var finalTransform = Float4x4.translate(Float2(point.x, point.y))

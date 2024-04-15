@@ -96,9 +96,9 @@ struct World {
 
         updatePositionSystem = ecs.addSystem(
             "UpdatePosition",
-            selector: [LECSPosition2d.self, LECSVelocity2d.self]) { world, components, columns in
-                var position = components[columns[0]] as! LECSPosition2d
-                var velocity = components[columns[1]] as! LECSVelocity2d
+            selector: [LECSPosition2d.self, LECSVelocity2d.self]) { components, columns in
+                var position = components[columns[0].col] as! LECSPosition2d
+                var velocity = components[columns[1].col] as! LECSVelocity2d
 
                 position.x = position.x + velocity.velocity.x
                 if position.x > 9 {
@@ -120,8 +120,8 @@ struct World {
 
         updateColorSystem = ecs.addSystem(
             "UpdateColor",
-            selector: [EntityColor.self]) { world, components, columns in
-                var color = components[columns[0]] as! EntityColor
+            selector: [EntityColor.self]) { components, columns in
+                var color = components[columns[0].col] as! EntityColor
 
                 if color.increasing {
                     color.g = color.g + 0.001
